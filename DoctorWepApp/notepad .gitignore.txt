@@ -1,0 +1,4 @@
+notepad .gitignore
+
+# Visual Studio folder .vs/ # Build folders bin/ obj/ # User files *.user *.suo *.cache
+ 
