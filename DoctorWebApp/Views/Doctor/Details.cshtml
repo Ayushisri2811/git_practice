@@ -1,0 +1,21 @@
+﻿
+@model DoctorWebApp.Models.Doctor
+
+<div class="container">
+    <h2>Doctor Details</h2>
+
+    <div class="card p-3">
+        <p><b>Name:</b> @Model.FullName</p>
+        <p><b>Specialisation:</b> @Model.Specialisation</p>
+        <p><b>Phone:</b> @Model.DoctorPhoneNo</p>
+        <p><b>Email:</b> @Model.DoctorEmail</p>
+        <p><b>Experience:</b> @Model.YearsOfExperience years</p>
+        <p><b>Fee:</b> ₹@Model.ConsultationFee</p>
+        <p><b>Status:</b> @(Model.IsActive ? "Active" : "Inactive")</p>
+    </div>
+
+    <br />
+
+    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-secondary" })
+</div>
+

@@ -1,0 +1,19 @@
+﻿@model DoctorWebApp.Models.Appointment
+
+<div class="container">
+    <h2>Appointment Details</h2>
+
+    <div class="card p-3">
+        <p><b>Patient:</b> @Model.PatientName</p>
+        <p><b>Doctor:</b> @Model.DoctorName</p>
+        <p><b>Date:</b> @Model.ScheduledDate.ToShortDateString()</p>
+        <p><b>Time Slot:</b> @Model.TimeSlot</p>
+        <p><b>Status:</b> @Model.Status</p>
+        <p><b>Cancellation Reason:</b> @Model.CancellationReason</p>
+    </div>
+
+    <br />
+
+    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-secondary" })
+</div>
+

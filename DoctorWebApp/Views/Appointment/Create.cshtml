@@ -1,0 +1,61 @@
+﻿
+@model DoctorWebApp.Models.Appointment
+
+<div class="container">
+
+    <h2>Appointment Form</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(x => x.AppointmentId)
+
+        <div class="form-group">
+            <label>Patient Name</label>
+            @Html.TextBoxFor(x => x.PatientName,
+                new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Doctor Name</label>
+            @Html.TextBoxFor(x => x.DoctorName,
+                new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Appointment Date</label>
+            @Html.TextBoxFor(x => x.ScheduledDate,
+                "{0:yyyy-MM-dd}",
+                new { @class = "form-control", type = "date" })
+        </div>
+
+        <div class="form-group">
+            <label>Time Slot</label>
+            @Html.TextBoxFor(x => x.TimeSlot,
+                new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            @Html.EnumDropDownListFor(x => x.Status,
+                new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Cancellation Reason</label>
+            @Html.TextAreaFor(x => x.CancellationReason,
+                new { @class = "form-control", rows = 3 })
+        </div>
+
+        <button type="submit"
+                class="btn btn-success">
+            Save
+        </button>
+
+        @Html.ActionLink("Back",
+            "Index",
+            null,
+            new { @class = "btn btn-default" })
+    }
+
+</div>
+

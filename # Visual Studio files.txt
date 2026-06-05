@@ -1,0 +1,52 @@
+# Visual Studio files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+Debug/
+Release/
+
+# ASP.NET specific
+App_Data/*.mdf
+App_Data/*.ldf
+
+# .NET Core / ASP.NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# NuGet packages
+*.nupkg
+packages/
+!packages/build/
+
+# Rider / ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# IIS / Azure publish
+*.publishsettings
+
+# Entity Framework
+*.edmx.diagram
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node (if frontend exists)
+node_modules/
+dist/

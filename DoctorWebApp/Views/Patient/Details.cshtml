@@ -1,0 +1,19 @@
+﻿@model DoctorWebApp.Models.Patient
+
+<div class="container">
+    <h2>Patient Details</h2>
+
+    <div class="card p-3">
+        <p><b>Name:</b> @Model.FullName</p>
+        <p><b>Date of Birth:</b> @Model.DateOfBirth.ToShortDateString()</p>
+        <p><b>Gender:</b> @Model.Gender</p>
+        <p><b>Phone:</b> @Model.PhoneNumber</p>
+        <p><b>Email:</b> @Model.Email</p>
+        <p><b>Insurance ID:</b> @Model.InsuranceId</p>
+    </div>
+
+    <br />
+
+    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-secondary" })
+</div>
+

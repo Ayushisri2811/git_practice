@@ -1,0 +1,59 @@
+﻿
+@model DoctorWebApp.Models.HealthRecord
+
+<div class="container">
+
+    <h2>Health Record</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(x => x.RecordId)
+
+        <div class="form-group">
+            <label>Patient Name</label>
+            @Html.TextBoxFor(x => x.PatientName,
+                new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Doctor Name</label>
+            @Html.TextBoxFor(x => x.DoctorName,
+                new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Visit Date</label>
+            @Html.TextBoxFor(x => x.VisitDate,
+                "{0:yyyy-MM-dd}",
+                new { @class = "form-control", type = "date" })
+        </div>
+
+        <div class="form-group">
+            <label>Diagnosis</label>
+            @Html.TextAreaFor(x => x.Diagnosis,
+                new { @class = "form-control", rows = 3 })
+        </div>
+
+        <div class="form-group">
+            <label>Prescription</label>
+            @Html.TextAreaFor(x => x.Prescription,
+                new { @class = "form-control", rows = 3 })
+        </div>
+
+        <div class="form-group">
+            <label>Notes</label>
+            @Html.TextAreaFor(x => x.Notes,
+                new { @class = "form-control", rows = 3 })
+        </div>
+
+        <button type="submit"
+                class="btn btn-success">
+            Save
+        </button>
+
+        @Html.ActionLink("Back", "Index", null,
+            new { @class = "btn btn-default" })
+    }
+
+</div>
+
