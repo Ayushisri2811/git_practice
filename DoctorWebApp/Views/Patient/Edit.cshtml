@@ -1,0 +1,42 @@
+﻿@model DoctorWebApp.Models.Patient
+
+<style>
+    body {
+        background: #f5f8fa;
+    }
+
+    .form-box {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        border-left: 6px solid #82e0aa;
+    }
+</style>
+
+<div class="container mt-4">
+
+    <h2>Edit Patient</h2>
+
+    <div class="form-box">
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(m => m.PatientId)
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.FullName)
+                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.PhoneNumber)
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+
+            <button type="submit" class="btn btn-success mt-3">Update</button>
+        }
+    </div>
+
+</div>
+``

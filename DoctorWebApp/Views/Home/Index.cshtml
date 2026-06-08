@@ -1,34 +1,112 @@
-﻿<div class="container">
+﻿<style>
+    body {
+        background: #f5f8fa;
+    }
 
-    <div class="jumbotron text-center">
-        <h1>HealthApp Dashboard</h1>
-        <p>Manage Patients, Doctors, Appointments & Health Records</p>
+    .card-box {
+        border-radius: 15px;
+        padding: 30px;
+        height: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: 0.3s;
+        color: #2c3e50;
+        background: #ffffff;
+        border: 1px solid #e6eef5;
+    }
+
+        .card-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+        }
+
+        .card-box .btn {
+            width: 100%;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+    
+
+    .patient {
+        border-left: 6px solid #7fb3d5; 
+    }
+
+    .doctor {
+        border-left: 6px solid #82e0aa; 
+    }
+
+    .appointment {
+        border-left: 6px solid #f7c59f; 
+    }
+
+    .record {
+        border-left: 6px solid #f1948a; 
+    }
+
+    /* HEADER */
+    .dashboard-header {
+        background: linear-gradient(135deg, #aed6f1, #d5f5e3);
+        color: #2c3e50;
+        border-radius: 15px;
+        padding: 40px;
+    }
+</style>
+
+<div class="container-fluid" style="padding:30px;">
+
+    <!-- HEADER -->
+    <div class="text-center dashboard-header">
+
+        <h1 style="font-weight:600;">🏥 HealthApp Dashboard</h1>
+        <p style="font-size:18px;">
+            Select a module to continue
+        </p>
+
     </div>
 
-    <div class="row">
+    <!-- CARDS -->
+    <div class="row" style="margin-top:30px;">
 
-        <div class="col-md-3">
-            <a href="/Patient/Index" class="btn btn-primary btn-block">
-                Patients
-            </a>
+        <!-- PATIENT -->
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card card-box patient text-center">
+                <h2>👤 Patient</h2>
+                <a href="/Patient/Index" class="btn btn-info text-white">
+                    Open
+                </a>
+            </div>
         </div>
 
-        <div class="col-md-3">
-            <a href="/Doctor/Index" class="btn btn-success btn-block">
-                Doctors
-            </a>
+        <!-- DOCTOR -->
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card card-box doctor text-center">
+                <h2>🩺 Doctor</h2>
+                <a href="/Doctor/Index" class="btn btn-success text-white">
+                    Open
+                </a>
+            </div>
         </div>
 
-        <div class="col-md-3">
-            <a href="/Appointment/Index" class="btn btn-warning btn-block">
-                Appointments
-            </a>
+        <!-- APPOINTMENT -->
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card card-box appointment text-center">
+                <h2>📅 Appointment</h2>
+                <a href="/Appointment/Index" class="btn btn-warning text-white">
+                    Open
+                </a>
+            </div>
         </div>
 
-        <div class="col-md-3">
-            <a href="/HealthRecord/Index" class="btn btn-danger btn-block">
-                Health Records
-            </a>
+        <!-- HEALTH RECORD -->
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card card-box record text-center">
+                <h2>📋 Health Record</h2>
+                <a href="/HealthRecord/Index" class="btn btn-danger text-white">
+                    Open
+                </a>
+            </div>
         </div>
 
     </div>

@@ -30,6 +30,8 @@ namespace DoctorWebApp.Controllers
         [HttpPost]
         public ActionResult Create(HealthRecord record)
         {
+            ModelState.Remove("RecordId");
+
             if (ModelState.IsValid)
             {
                 HealthRecordRepository.Add(record);

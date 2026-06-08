@@ -1,52 +1,178 @@
 ﻿@model IEnumerable<DoctorWebApp.Models.Doctor>
 
-<div class="container">
-    <h2>Doctors</h2>
+<style>
+    body {
+        background: #f5f8fa;
+    }
 
-    <p>
-        @Html.ActionLink("Add Doctor", "Create", null,
-        new { @class = "btn btn-primary" })
-    </p>
+    .header-box {
+        background: linear-gradient(135deg, #aed6f1, #d5f5e3);
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-    <table class="table table-bordered table-striped">
-        <thead>
+    .table-box {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid #e6eef5;
+    }
+
+    .filter-box {
+        display: none;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        margin-top: 10px;
+    }
+
+    .action-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .search-group {
+        display: flex;
+        gap: 8px;
+    }
+
+    .right-actions {
+        display: flex;
+        gap: 8px;
+    }
+
+    .btn {
+        min-width: 100px;
+    }
+</style>
+
+<script>
+    function toggleFilter() {
+        var x = document.getElementById("filterBox");
+        x.style.display = x.style.display === "none" ? "block" : "none";
+    }
+</script>
+
+<div class="container mt-4">
+
+    <div class="header-box">
+        <h2>🩺 Doctor List</h2>
+    </div>
+
+    <div class="table-box">
+
+        <!-- ✅ ACTION BAR -->
+        <div class="action-bar mb-3">
+
+            <!-- ✅ SEARCH -->
+            <form method="get" class="search-group">
+
+                <input type="text"
+                       name="searchTerm"
+                       value="@ViewBag.SearchTerm"
+                       placeholder="Search by ID / Name"
+                       class="form-control"
+                       style="width:250px;" />
+
+                <button class="btn btn-primary">Search</button>
+            </form>
+
+            <!-- ✅ ACTION BUTTONS -->
+            <div class="right-actions">
+
+                <button onclick="toggleFilter()" class="btn btn-info text-white">
+                    Filter / Sort
+                </button>
+
+                @Html.ActionLink("+ Add Doctor", "Create", null,
+                    new { @class = "btn btn-success" })
+
+            </div>
+        </div>
+
+        <!-- ✅ FILTER BOX -->
+        <div id="filterBox" class="filter-box">
+            <form method="get">
+
+                <!-- ✅ IMPORTANT: retain search during filter -->
+                <input type="hidden" name="searchTerm" value="@ViewBag.SearchTerm" />
+
+                <label>Specialisation</label>
+                @Html.DropDownList(
+                    "specialisationFilter",
+                    new SelectList(Enum.GetValues(typeof(DoctorWebApp.Models.SpecialisationType))),
+                    "All",
+                    new { @class = "form-control" })
+
+                <label class="mt-2">Sort</label>
+                <select name="sortOrder" class="form-control">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+
+                <button class="btn btn-success mt-3">Apply</button>
+            </form>
+        </div>
+
+        <!-- ✅ TABLE -->
+        <table class="table table-bordered mt-3">
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Specialisation</th>
                 <th>Experience</th>
                 <th>Fee</th>
                 <th>Status</th>
-                <th width="220"></th>
+                <th>Actions</th>
             </tr>
-        </thead>
 
-        <tbody>
-            @foreach (var item in Model)
+            @if (!Model.Any())
             {
                 <tr>
-                    <td>@item.FullName</td>
-                    <td>@item.Specialisation</td>
-                    <td>@item.YearsOfExperience Years</td>
-                    <td>₹ @item.ConsultationFee</td>
-                    <td>
-                        @(item.IsActive ? "Active" : "Inactive")
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit",
-                        new { id = item.DoctorId },
-                        new { @class = "btn btn-warning btn-sm" })
-
-                        @Html.ActionLink("Details", "Details",
-                        new { id = item.DoctorId },
-                        new { @class = "btn btn-info btn-sm" })
-
-                        @Html.ActionLink("Delete", "Delete",
-                        new { id = item.DoctorId },
-                        new { @class = "btn btn-danger btn-sm" })
+                    <td colspan="7" class="text-center text-muted">
+                        No doctors found
                     </td>
                 </tr>
             }
-        </tbody>
-    </table>
-</div>
 
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.DoctorId</td>
+                    <td>@d.FullName</td>
+                    <td>@d.Specialisation</td>
+                    <td>@d.YearsOfExperience yrs</td>
+                    <td>@d.ConsultationFee</td>
+                    <td>
+                        @if (d.IsActive)
+                        {
+                            <span class="badge bg-success">Active</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Inactive</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("View", "Details", new { id = d.DoctorId }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = d.DoctorId }) |
+                        @Html.ActionLink(
+                            d.IsActive ? "Deactivate" : "Activate",
+                            "ToggleStatus",
+                            new { id = d.DoctorId }
+                        )
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
+``

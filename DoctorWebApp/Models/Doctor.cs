@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DoctorWebApp.Models
 {
-    using System.ComponentModel.DataAnnotations;
-
     public enum SpecialisationType
     {
         GeneralPhysician,
@@ -24,7 +19,7 @@ namespace DoctorWebApp.Models
     {
         public int DoctorId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Name is required")]
         [StringLength(50)]
         public string FullName { get; set; }
 
@@ -32,7 +27,7 @@ namespace DoctorWebApp.Models
         public SpecialisationType Specialisation { get; set; }
 
         [Required]
-        [RegularExpression(@"^[0-9]{10}$")]
+        [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Enter valid 10-digit phone")]
         public string DoctorPhoneNo { get; set; }
 
         [Required]
@@ -42,9 +37,13 @@ namespace DoctorWebApp.Models
         [Range(0, 50)]
         public int YearsOfExperience { get; set; }
 
-        [Range(0, 10000)]
+        // ✅ Must be positive
+        [Range(1, 10000, ErrorMessage = "Fee must be greater than 0")]
         public decimal ConsultationFee { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
+
+        // ✅ For profile page
+        public int UpcomingAppointmentCount { get; set; }
     }
 }

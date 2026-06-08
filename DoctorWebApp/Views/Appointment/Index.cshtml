@@ -1,59 +1,111 @@
 ﻿@model IEnumerable<DoctorWebApp.Models.Appointment>
 
-<div class="container">
+<style>
+    body {
+        background: #f5f8fa;
+    }
 
-    <h2>Appointments</h2>
+    .page-header {
+        background: linear-gradient(135deg, #aed6f1, #d5f5e3);
+        padding: 25px;
+        border-radius: 12px;
+        color: #2c3e50;
+        margin-bottom: 20px;
+    }
 
-    <p>
-        @Html.ActionLink("Book Appointment",
-            "Create",
-            null,
-            new { @class = "btn btn-primary" })
-    </p>
+    .card-container {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
 
-    <table class="table table-bordered table-striped">
+    .table thead {
+        background: #eaf2f8;
+        color: #2c3e50;
+    }
 
-        <thead>
-            <tr>
-                <th>Patient</th>
-                <th>Doctor</th>
-                <th>Date</th>
-                <th>Time Slot</th>
-                <th>Status</th>
-                <th width="220"></th>
-            </tr>
-        </thead>
+    .table tbody tr:hover {
+        background: #f0f8ff;
+    }
 
-        <tbody>
+    .btn-sm {
+        margin-right: 5px;
+        border-radius: 6px;
+    }
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.PatientName</td>
-                    <td>@item.DoctorName</td>
-                    <td>@item.ScheduledDate.ToShortDateString()</td>
-                    <td>@item.TimeSlot</td>
-                    <td>@item.Status</td>
+    .btn-primary {
+        border-radius: 8px;
+    }
+</style>
 
-                    <td>
-                        @Html.ActionLink("Edit", "Edit",
-                            new { id = item.AppointmentId },
-                            new { @class = "btn btn-warning btn-sm" })
+<div class="container-fluid" style="padding:30px;">
 
-                        @Html.ActionLink("Details", "Details",
-                            new { id = item.AppointmentId },
-                            new { @class = "btn btn-info btn-sm" })
+    <!-- HEADER -->
+    <div class="page-header text-center">
+        <h2>📅 Appointments</h2>
+        <p>Manage all scheduled appointments</p>
+    </div>
 
-                        @Html.ActionLink("Delete", "Delete",
-                            new { id = item.AppointmentId },
-                            new { @class = "btn btn-danger btn-sm" })
-                    </td>
-                </tr>
-            }
+    <div class="card-container">
 
-        </tbody>
+        <!-- ADD BUTTON -->
+        <div class="mb-3">
+            @Html.ActionLink("➕ Book Appointment", "Create", null,
+                new { @class = "btn btn-primary" })
+        </div>
 
-    </table>
+        <!-- TABLE -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
 
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Doctor</th>
+                        <th>Date</th>
+                        <th>Time Slot</th>
+                        <th>Status</th>
+                        <th style="width:180px;">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.PatientName</td>
+                            <td>@item.DoctorName</td>
+                            <td>@item.ScheduledDate.ToShortDateString()</td>
+                            <td>@item.TimeSlot</td>
+                            <td>@item.Status</td>
+
+                            <td>
+                                <div style="display:flex; flex-direction:column; gap:6px; min-width:120px;">
+
+                                    @Html.ActionLink("Edit", "Edit",
+                                        new { id = item.AppointmentId },
+                                        new { @class = "btn btn-warning btn-sm" })
+
+                                    @Html.ActionLink("Details", "Details",
+                                        new { id = item.AppointmentId },
+                                        new { @class = "btn btn-info btn-sm" })
+
+                                    @Html.ActionLink("Delete", "Delete",
+                                        new { id = item.AppointmentId },
+                                        new { @class = "btn btn-danger btn-sm" })
+
+                                </div>
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
 </div>
-

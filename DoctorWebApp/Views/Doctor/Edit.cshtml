@@ -33,19 +33,21 @@
 <div class="container mt-4">
 
     <div class="header-box">
-        <h2>➕ Add Doctor</h2>
+        <h2>✏️ Edit Doctor</h2>
     </div>
 
     <div class="form-box">
 
         @using (Html.BeginForm())
         {
+            @Html.HiddenFor(m => m.DoctorId)
+
             @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
 
-            <!-- ✅ Doctor ID (Display Only) -->
+            <!-- ✅ Doctor ID (Read-only) -->
             <div class="form-group">
                 <label>Doctor ID</label>
-                <input type="text" class="form-control" value="Auto-generated" readonly />
+                <input class="form-control" value="@Model.DoctorId" readonly />
             </div>
 
             <!-- ✅ Name -->
@@ -59,9 +61,7 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.Specialisation)
                 @Html.EnumDropDownListFor(m => m.Specialisation,
-                    "-- Select Specialisation --",
                     new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Specialisation, "", new { @class = "text-danger" })
             </div>
 
             <!-- ✅ Experience -->
@@ -94,8 +94,8 @@
 
             <!-- ✅ BUTTONS -->
             <div class="btn-group mt-3">
-                <button type="submit" class="btn btn-success">
-                    Save
+                <button type="submit" class="btn btn-primary">
+                    Update
                 </button>
 
                 @Html.ActionLink("Cancel", "Index", null,

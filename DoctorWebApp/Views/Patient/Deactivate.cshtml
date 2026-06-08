@@ -1,0 +1,32 @@
+﻿@model DoctorWebApp.Models.Patient
+
+<style>
+    body {
+        background: #f5f8fa;
+    }
+
+    .confirm-box {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        border-left: 6px solid #f1948a;
+        text-align: center;
+    }
+</style>
+
+<div class="container mt-4">
+
+    <div class="confirm-box">
+        <h3>⚠ Deactivate Patient</h3>
+        <p>Are you sure you want to deactivate <strong>@Model.FullName</strong>?</p>
+
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(m => m.PatientId)
+            <button type="submit" class="btn btn-danger">Yes, Deactivate</button>
+            <a href="/Patient/Index" class="btn btn-secondary">Cancel</a>
+        }
+    </div>
+
+</div>
+

@@ -1,21 +1,40 @@
-﻿
-@model DoctorWebApp.Models.Doctor
+﻿@model DoctorWebApp.Models.Doctor
 
-<div class="container">
-    <h2>Doctor Details</h2>
+<style>
+    body {
+        background: #f5f8fa;
+    }
 
-    <div class="card p-3">
-        <p><b>Name:</b> @Model.FullName</p>
-        <p><b>Specialisation:</b> @Model.Specialisation</p>
-        <p><b>Phone:</b> @Model.DoctorPhoneNo</p>
-        <p><b>Email:</b> @Model.DoctorEmail</p>
-        <p><b>Experience:</b> @Model.YearsOfExperience years</p>
-        <p><b>Fee:</b> ₹@Model.ConsultationFee</p>
-        <p><b>Status:</b> @(Model.IsActive ? "Active" : "Inactive")</p>
+    .profile-box {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        border-left: 6px solid #82e0aa;
+    }
+
+    .header-box {
+        background: linear-gradient(135deg, #aed6f1, #d5f5e3);
+        padding: 25px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+</style>
+
+<div class="container mt-4">
+
+    <div class="header-box">
+        <h2>👨‍⚕️ Doctor Profile</h2>
     </div>
 
-    <br />
+    <div class="profile-box">
+        <p><strong>Name:</strong> @Model.FullName</p>
+        <p><strong>Specialisation:</strong> @Model.Specialisation</p>
+        <p><strong>Email:</strong> @Model.DoctorEmail</p>
+        <p><strong>Phone:</strong> @Model.DoctorPhoneNo</p>
+        <p><strong>Fee:</strong> @Model.ConsultationFee</p>
+        <p><strong>Upcoming Appointments:</strong> @Model.UpcomingAppointmentCount</p>
+        <p><strong>Status:</strong> @(Model.IsActive ? "Active" : "Inactive")</p>
+    </div>
 
-    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-secondary" })
 </div>
-

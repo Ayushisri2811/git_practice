@@ -1,70 +1,96 @@
-﻿using DoctorWebApp.Models;
-using DoctorWebApp.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+using DoctorWebApp.Models;
+using DoctorWebApp.Repository;
 
 namespace DoctorWebApp.Controllers
 {
-
-
     public class DoctorController : Controller
     {
-        public ActionResult Index()
+        private IDoctorRepository _repo;
+
+        public DoctorController()
         {
-            return View(DoctorRepository.GetAll());
+            _repo = new DoctorRepository();
         }
 
-        public ActionResult Details(int id)
+        // ✅ LIST (Search + Filter + Sort)
+        public ActionResult Index(string specialisationFilter, string sortOrder, string searchTerm)
         {
-            return View(DoctorRepository.GetById(id));
+            ViewBag.Specialisation = specialisationFilter;
+            ViewBag.SortOrder = sortOrder;
+            ViewBag.SearchTerm = searchTerm;
+
+            var doctors = _repo.GetAll(specialisationFilter, sortOrder);
+
+            // ✅ SEARCH (ID + Name)
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                searchTerm = searchTerm.ToLower().Trim();
+
+                doctors = doctors.Where(d =>
+                    d.FullName.ToLower().Contains(searchTerm) ||
+                    d.DoctorId.ToString().Contains(searchTerm)
+                );
+            }
+
+            return View(doctors);
         }
 
+        // ✅ CREATE (GET)
         public ActionResult Create()
         {
             return View();
         }
 
+        // ✅ CREATE (POST)
         [HttpPost]
         public ActionResult Create(Doctor doctor)
         {
-            if (ModelState.IsValid)
-            {
-                DoctorRepository.Add(doctor);
-                return RedirectToAction("Index");
-            }
+            if (!ModelState.IsValid)
+                return View(doctor);
+
+            _repo.Add(doctor);
+            return RedirectToAction("Index");
+        }
+
+        // ✅ DETAILS (PROFILE)
+        public ActionResult Details(int id)
+        {
+            var doctor = _repo.GetById(id);
+
+            if (doctor == null)
+                return HttpNotFound();
 
             return View(doctor);
         }
 
+        // ✅ EDIT (GET)
         public ActionResult Edit(int id)
         {
-            return View(DoctorRepository.GetById(id));
+            var doctor = _repo.GetById(id);
+
+            if (doctor == null)
+                return HttpNotFound();
+
+            return View(doctor);
         }
 
+        // ✅ EDIT (POST)
         [HttpPost]
         public ActionResult Edit(Doctor doctor)
         {
-            if (ModelState.IsValid)
-            {
-                DoctorRepository.Update(doctor);
-                return RedirectToAction("Index");
-            }
+            if (!ModelState.IsValid)
+                return View(doctor);
 
-            return View(doctor);
+            _repo.Update(doctor);
+            return RedirectToAction("Index");
         }
 
-        public ActionResult Delete(int id)
+        // ✅ TOGGLE ACTIVE / INACTIVE
+        public ActionResult ToggleStatus(int id)
         {
-            return View(DoctorRepository.GetById(id));
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            DoctorRepository.Delete(id);
+            _repo.ToggleStatus(id);
             return RedirectToAction("Index");
         }
     }

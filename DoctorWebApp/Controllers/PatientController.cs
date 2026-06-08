@@ -1,22 +1,30 @@
-﻿using DoctorWebApp.Models;
-using DoctorWebApp.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using DoctorWebApp.Models;
+using DoctorWebApp.Repository;
 
 namespace DoctorWebApp.Controllers
 {
-
-
     public class PatientController : Controller
     {
-        public ActionResult Index()
+        private readonly IPatientRepository _repo;
+
+        public PatientController()
         {
-            return View(PatientRepository.GetAll());
+            _repo = new PatientRepository();
         }
 
+        // ✅ INDEX (Search + Filter + Sort)
+        public ActionResult Index(string sortOrder, string insuranceFilter, string searchTerm)
+        {
+            ViewBag.SearchTerm = searchTerm;
+            ViewBag.SortOrder = sortOrder;
+            ViewBag.InsuranceFilter = insuranceFilter;
+
+            var patients = _repo.GetAll(sortOrder, insuranceFilter, searchTerm);
+            return View(patients);
+        }
+
+        // ✅ CREATE
         public ActionResult Create()
         {
             return View();
@@ -25,47 +33,67 @@ namespace DoctorWebApp.Controllers
         [HttpPost]
         public ActionResult Create(Patient patient)
         {
+            if (_repo.EmailExists(patient.Email))
+            {
+                ModelState.AddModelError("Email", "Email already exists");
+            }
+
             if (ModelState.IsValid)
             {
-                PatientRepository.Add(patient);
+                _repo.Add(patient);
                 return RedirectToAction("Index");
             }
 
             return View(patient);
         }
 
+        // ✅ DETAILS
+        public ActionResult Details(int id)
+        {
+            var patient = _repo.GetById(id);
+            if (patient == null) return HttpNotFound();
+
+            return View(patient);
+        }
+
+        // ✅ EDIT
         public ActionResult Edit(int id)
         {
-            return View(PatientRepository.GetById(id));
+            var patient = _repo.GetById(id);
+            if (patient == null) return HttpNotFound();
+
+            return View(patient);
         }
 
         [HttpPost]
         public ActionResult Edit(Patient patient)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(patient);
+
+            if (!_repo.Update(patient))
             {
-                PatientRepository.Update(patient);
-                return RedirectToAction("Index");
+                ModelState.AddModelError("Email", "Email already exists");
+                return View(patient);
             }
+
+            return RedirectToAction("Index");
+        }
+
+        // ✅ DEACTIVATE
+        public ActionResult Deactivate(int id)
+        {
+            var patient = _repo.GetById(id);
+            if (patient == null) return HttpNotFound();
 
             return View(patient);
         }
 
-        public ActionResult Delete(int id)
+        [HttpPost, ActionName("Deactivate")]
+        public ActionResult DeactivateConfirmed(int id)
         {
-            return View(PatientRepository.GetById(id));
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            PatientRepository.Delete(id);
+            _repo.Deactivate(id);
             return RedirectToAction("Index");
-        }
-
-        public ActionResult Details(int id)
-        {
-            return View(PatientRepository.GetById(id));
         }
     }
 }

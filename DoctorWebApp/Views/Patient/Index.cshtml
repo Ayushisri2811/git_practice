@@ -1,55 +1,127 @@
 ﻿@model IEnumerable<DoctorWebApp.Models.Patient>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+<style>
+    body {
+        background: #f5f8fa;
+    }
 
-            <h2>Patients</h2>
+    .header-box {
+        background: linear-gradient(135deg, #aed6f1, #d5f5e3);
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-            <p>
-                @Html.ActionLink("Add Patient", "Create",
-                null,
-                new { @class = "btn btn-primary" })
-            </p>
+    .table-box {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid #e6eef5;
+    }
 
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>DOB</th>
-                        <th>Gender</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
+    .filter-box {
+        display: none;
+        background: #fff;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+</style>
 
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@item.FullName</td>
-                            <td>@item.DateOfBirth.ToShortDateString()</td>
-                            <td>@item.Gender</td>
-                            <td>@item.PhoneNumber</td>
-                            <td>@item.Email</td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.PatientId },
-                                    new { @class = "btn btn-warning btn-sm" })
+<script>
+    function toggleFilter() {
+        var x = document.getElementById("filterBox");
+        x.style.display = (x.style.display === "none") ? "block" : "none";
+    }
+</script>
 
-                                @Html.ActionLink("Details", "Details", new { id = item.PatientId },
-                                    new { @class = "btn btn-info btn-sm" })
+<div class="container mt-4">
 
-                                @Html.ActionLink("Delete", "Delete", new { id = item.PatientId },
-                                    new { @class = "btn btn-danger btn-sm" })
-                            </td>
-                        </tr>
-                    }
+    <div class="header-box">
+        <h2>👤 Patient List</h2>
+    </div>
 
-                </tbody>
-            </table>
+    <div class="table-box">
 
+        <!-- ✅ SEARCH -->
+        <form method="get" class="mb-3 d-flex gap-2">
+            <input type="text" name="searchTerm"
+                   value="@ViewBag.SearchTerm"
+                   placeholder="Search by ID / Name"
+                   class="form-control" />
+
+            <button class="btn btn-primary text-white">Search</button>
+        </form>
+
+        <!-- ✅ FILTER BUTTON -->
+        <button onclick="toggleFilter()" class="btn btn-info mb-3 text-white">
+            Filter / Sort
+        </button>
+
+        <!-- ✅ FILTER BOX -->
+        <div id="filterBox" class="filter-box">
+            <form method="get">
+
+                <input type="hidden" name="searchTerm" value="@ViewBag.SearchTerm" />
+
+                <label>Insurance</label>
+                <select name="insuranceFilter" class="form-control">
+                    <option value="">All</option>
+                    <option value="WithInsurance">With Insurance</option>
+                    <option value="WithoutInsurance">Without Insurance</option>
+                </select>
+
+                <label class="mt-2">Sort</label>
+                <select name="sortOrder" class="form-control">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+
+                <button class="btn btn-success mt-3">Apply</button>
+            </form>
         </div>
+
+        <a href="/Patient/Create" class="btn btn-success mb-3 mt-2">
+            + Register Patient
+        </a>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th>Insurance</th>
+                <th>Actions</th>
+            </tr>
+
+            @if (!Model.Any())
+            {
+                <tr>
+                    <td colspan="6" class="text-center text-muted">
+                        No patients found
+                    </td>
+                </tr>
+            }
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.PatientId</td>
+                    <td>@item.FullName</td>
+                    <td>@item.DateOfBirth.ToShortDateString()</td>
+                    <td>@item.Email</td>
+                    <td>@(string.IsNullOrEmpty(item.InsuranceId) ? "No" : "Yes")</td>
+                    <td>
+                        @Html.ActionLink("View", "Details", new { id = item.PatientId }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PatientId }) |
+                        @Html.ActionLink("Deactivate", "Deactivate", new { id = item.PatientId })
+                    </td>
+                </tr>
+            }
+
+        </table>
     </div>
 </div>
-

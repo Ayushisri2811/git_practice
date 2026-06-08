@@ -1,60 +1,40 @@
 ﻿@model DoctorWebApp.Models.Patient
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
+<div class="container mt-4">
 
-            @using (Html.BeginForm())
-            {
-                @Html.ValidationSummary(true)
+    <h2>📝 Register Patient</h2>
 
-                <div class="form-group">
-                    <label>Name</label>
-                    @Html.TextBoxFor(x => x.FullName,
-                    new { @class = "form-control" })
-                </div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
 
-                <div class="form-group">
-                    <label>Date Of Birth</label>
-                    @Html.TextBoxFor(x => x.DateOfBirth,
-                    "{0:yyyy-MM-dd}",
-                    new { @class = "form-control", type = "date" })
-                </div>
+        <label>Patient ID</label>
+        <input class="form-control" value="Auto-generated" readonly />
 
-                <div class="form-group">
-                    <label>Gender</label>
-                    @Html.EnumDropDownListFor(x => x.Gender,
-                    new { @class = "form-control" })
-                </div>
+        @Html.LabelFor(m => m.FullName)
+        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FullName)
 
-                <div class="form-group">
-                    <label>Phone</label>
-                    @Html.TextBoxFor(x => x.PhoneNumber,
-                    new { @class = "form-control" })
-                </div>
+        @Html.LabelFor(m => m.DateOfBirth)
+        @Html.TextBoxFor(m => m.DateOfBirth, "{0:yyyy-MM-dd}",
+            new { @type = "date", @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DateOfBirth)
 
-                <div class="form-group">
-                    <label>Email</label>
-                    @Html.TextBoxFor(x => x.Email,
-                    new { @class = "form-control" })
-                </div>
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email)
 
-                <div class="form-group">
-                    <label>Insurance ID</label>
-                    @Html.TextBoxFor(x => x.InsuranceId,
-                    new { @class = "form-control" })
-                </div>
+        @Html.LabelFor(m => m.PhoneNumber)
+        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PhoneNumber)
 
-                <button type="submit" class="btn btn-success">
-                    Save
-                </button>
+        @Html.LabelFor(m => m.Gender)
+        @Html.EnumDropDownListFor(m => m.Gender, new { @class = "form-control" })
 
-                @Html.ActionLink("Back", "Index",
-                null,
-                new { @class = "btn btn-default" })
-            }
+        @Html.LabelFor(m => m.InsuranceId)
+        @Html.TextBoxFor(m => m.InsuranceId, new { @class = "form-control" })
 
-        </div>
-    </div>
+        <button class="btn btn-info text-white mt-3">Register</button>
+    }
+
 </div>
-

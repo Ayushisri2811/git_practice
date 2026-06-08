@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
 
 namespace DoctorWebApp.Models
 {
-
     public enum GenderType
     {
         Male,
@@ -19,7 +14,7 @@ namespace DoctorWebApp.Models
     {
         public int PatientId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Full name is required")]
         [StringLength(50)]
         public string FullName { get; set; }
 
@@ -31,14 +26,18 @@ namespace DoctorWebApp.Models
         public GenderType Gender { get; set; }
 
         [Required]
-        [RegularExpression(@"^[0-9]{10}$")]
+        [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Enter valid 10-digit phone")]
         public string PhoneNumber { get; set; }
 
         [Required]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Invalid email")]
         public string Email { get; set; }
 
         public string InsuranceId { get; set; }
+
+        public bool IsActive { get; set; } = true;
+
+        public int AppointmentCount { get; set; } // for profile view
 
         public DateTime CreatedDate { get; set; } = DateTime.Now;
     }

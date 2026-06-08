@@ -3,32 +3,100 @@
   "WorkspaceRootPath": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\models\\healthrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\models\\healthrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|c:\\users\\287802\\source\\repos\\doctorwebapp\\doctorwebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|c:\\users\\287802\\source\\repos\\doctorwebapp\\doctorwebapp\\views\\doctor\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\doctor\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|c:\\users\\287802\\source\\repos\\doctorwebapp\\doctorwebapp\\views\\patient\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\patient\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\appointment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\appointment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|c:\\users\\287802\\source\\repos\\doctorwebapp\\doctorwebapp\\views\\patient\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\patient\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\healthrecord\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\healthrecord\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\appointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\appointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\doctor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\doctor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\patient\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\patient\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\patient\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\patient\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\models\\healthrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\models\\healthrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\controllers\\healthrecordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\controllers\\healthrecordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\repositories\\healthrecordrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\repositories\\healthrecordrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\healthrecord\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\healthrecord\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,72 +123,20 @@
       "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\doctor\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\patient\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\patient\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\patient\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\patient\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\appointment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\appointment\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\appointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\appointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\repositories\\appointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\repositories\\appointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\healthrecord\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\healthrecord\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\healthrecord\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\healthrecord\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\doctor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\doctor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\controllers\\healthrecordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\controllers\\healthrecordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\repositories\\healthrecordrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\repositories\\healthrecordrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\doctor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\doctor\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\patient\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\patient\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\views\\patient\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\views\\patient\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\repositories\\doctorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\repositories\\doctorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|solutionrelative:doctorwebapp\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE00A49F-6452-44CD-9A3C-A139107208E4}|DoctorWebApp\\DoctorWebApp.csproj|C:\\Users\\287802\\source\\repos\\DoctorWebApp\\doctorwebapp\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -142,19 +158,57 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAGAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Edit.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Doctor\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Edit.cshtml*",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Doctor\\Edit.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:51:42.929Z"
+              "WhenOpened": "2026-06-08T04:14:08.946Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Edit.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Patient\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Edit.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Patient\\Edit.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-08T04:10:08.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Doctor\\Index.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Index.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Doctor\\Index.cshtml",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAowGYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:15:10.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Appointment\\Index.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Index.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Appointment\\Index.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAowG4AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:28:09.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "DoctorWebApp\\Controllers\\HomeController.cs",
@@ -167,297 +221,70 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RouteConfig.cs",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\App_Start\\RouteConfig.cs",
-              "RelativeDocumentMoniker": "DoctorWebApp\\App_Start\\RouteConfig.cs",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\App_Start\\RouteConfig.cs",
-              "RelativeToolTip": "DoctorWebApp\\App_Start\\RouteConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T19:31:44.868Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Appointment.cs",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\Appointment.cs",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Models\\Appointment.cs",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\Appointment.cs",
-              "RelativeToolTip": "DoctorWebApp\\Models\\Appointment.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T18:42:42.334Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HealthRecord.cs",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\HealthRecord.cs",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Models\\HealthRecord.cs",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\HealthRecord.cs",
-              "RelativeToolTip": "DoctorWebApp\\Models\\HealthRecord.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAQwB8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T18:42:30.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\Contact.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Home\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\Contact.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Home\\Contact.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:52:23.742Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "About.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\About.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Home\\About.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\About.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Home\\About.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:52:40.102Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Delete.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Appointment\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Delete.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Appointment\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:39:26.783Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Details.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Appointment\\Details.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Details.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Appointment\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:38:45.397Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Delete.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\HealthRecord\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Delete.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\HealthRecord\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:37:37.289Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Details.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\HealthRecord\\Details.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Details.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\HealthRecord\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:36:57.317Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PatientController.cs",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\PatientController.cs",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Controllers\\PatientController.cs",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\PatientController.cs",
-              "RelativeToolTip": "DoctorWebApp\\Controllers\\PatientController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T18:53:26.354Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Details.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Doctor\\Details.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Details.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Doctor\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:35:54.116Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Delete.cshtml",
               "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Patient\\Delete.cshtml",
               "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Delete.cshtml",
               "RelativeToolTip": "DoctorWebApp\\Views\\Patient\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:34:50.039Z"
+              "WhenOpened": "2026-06-04T19:34:50.039Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Details.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Patient\\Details.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Details.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Patient\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:33:59.625Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 3,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Create.cshtml",
               "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Appointment\\Create.cshtml",
               "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Create.cshtml",
               "RelativeToolTip": "DoctorWebApp\\Views\\Appointment\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:28:57.816Z"
+              "WhenOpened": "2026-06-04T19:28:57.816Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Index.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Appointment\\Index.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Index.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Appointment\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAnAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAcwGUAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:28:09.826Z"
+              "WhenOpened": "2026-06-04T19:51:42.929Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AppointmentController.cs",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\AppointmentController.cs",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Controllers\\AppointmentController.cs",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\AppointmentController.cs",
-              "RelativeToolTip": "DoctorWebApp\\Controllers\\AppointmentController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T19:27:24.477Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AppointmentRepository.cs",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Repositories\\AppointmentRepository.cs",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Repositories\\AppointmentRepository.cs",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Repositories\\AppointmentRepository.cs",
-              "RelativeToolTip": "DoctorWebApp\\Repositories\\AppointmentRepository.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAcwEUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T19:26:00.381Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Create.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\HealthRecord\\Create.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Create.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\HealthRecord\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:24:13.199Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Index.cshtml",
               "RelativeDocumentMoniker": "DoctorWebApp\\Views\\HealthRecord\\Index.cshtml",
               "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Index.cshtml",
               "RelativeToolTip": "DoctorWebApp\\Views\\HealthRecord\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-06-04T19:22:44.233Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "HealthRecordController.cs",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\HealthRecordController.cs",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Controllers\\HealthRecordController.cs",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\HealthRecordController.cs",
-              "RelativeToolTip": "DoctorWebApp\\Controllers\\HealthRecordController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAcwEYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T19:21:51.484Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "HealthRecordRepository.cs",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Repositories\\HealthRecordRepository.cs",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Repositories\\HealthRecordRepository.cs",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Repositories\\HealthRecordRepository.cs",
-              "RelativeToolTip": "DoctorWebApp\\Repositories\\HealthRecordRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T19:19:02.411Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Create.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Doctor\\Create.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Create.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Doctor\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:16:34.897Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 9,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Index.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Doctor\\Index.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Index.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Doctor\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Patient\\Index.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Index.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Patient\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHAAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T19:15:10.717Z"
+              "WhenOpened": "2026-06-04T18:54:59.544Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "DoctorController.cs",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\DoctorController.cs",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Controllers\\DoctorController.cs",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\DoctorController.cs",
-              "RelativeToolTip": "DoctorWebApp\\Controllers\\DoctorController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAswEYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T19:14:16.657Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 11,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Create.cshtml",
               "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Patient\\Create.cshtml",
@@ -469,7 +296,271 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T05:57:52.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T05:57:59.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:52:23.742Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:52:40.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AppointmentController.cs",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\AppointmentController.cs",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Controllers\\AppointmentController.cs",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\AppointmentController.cs",
+              "RelativeToolTip": "DoctorWebApp\\Controllers\\AppointmentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T19:27:24.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DoctorController.cs",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\DoctorController.cs",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Controllers\\DoctorController.cs",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\DoctorController.cs",
+              "RelativeToolTip": "DoctorWebApp\\Controllers\\DoctorController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T19:14:16.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\Doctor.cs",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Models\\Doctor.cs",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\Doctor.cs",
+              "RelativeToolTip": "DoctorWebApp\\Models\\Doctor.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAA3wCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T18:42:16.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "HealthRecordRepository.cs",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Repositories\\HealthRecordRepository.cs",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Repositories\\HealthRecordRepository.cs",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Repositories\\HealthRecordRepository.cs",
+              "RelativeToolTip": "DoctorWebApp\\Repositories\\HealthRecordRepository.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAswC8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T19:19:02.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "HealthRecordController.cs",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\HealthRecordController.cs",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Controllers\\HealthRecordController.cs",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\HealthRecordController.cs",
+              "RelativeToolTip": "DoctorWebApp\\Controllers\\HealthRecordController.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAwCkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T19:21:51.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "HealthRecord.cs",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\HealthRecord.cs",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Models\\HealthRecord.cs",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\HealthRecord.cs",
+              "RelativeToolTip": "DoctorWebApp\\Models\\HealthRecord.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwB4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T18:42:30.66Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Create.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\HealthRecord\\Create.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Create.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\HealthRecord\\Create.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAgwFsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:24:13.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Models\\Appointment.cs",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\Appointment.cs",
+              "RelativeToolTip": "DoctorWebApp\\Models\\Appointment.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T18:42:42.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "DoctorWebApp\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "DoctorWebApp\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T19:31:44.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Delete.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Appointment\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Delete.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Appointment\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:39:26.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Details.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Appointment\\Details.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Appointment\\Details.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Appointment\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:38:45.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Delete.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\HealthRecord\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Delete.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\HealthRecord\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:37:37.289Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 28,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Details.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\HealthRecord\\Details.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\HealthRecord\\Details.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\HealthRecord\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:36:57.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "PatientController.cs",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\PatientController.cs",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Controllers\\PatientController.cs",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Controllers\\PatientController.cs",
+              "RelativeToolTip": "DoctorWebApp\\Controllers\\PatientController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T18:53:26.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Details.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Doctor\\Details.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Details.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Doctor\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:35:54.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Details.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Patient\\Details.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Details.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Patient\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:33:59.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "AppointmentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Repositories\\AppointmentRepository.cs",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Repositories\\AppointmentRepository.cs",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Repositories\\AppointmentRepository.cs",
+              "RelativeToolTip": "DoctorWebApp\\Repositories\\AppointmentRepository.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAcwEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T19:26:00.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Create.cshtml",
+              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Doctor\\Create.cshtml",
+              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Doctor\\Create.cshtml",
+              "RelativeToolTip": "DoctorWebApp\\Views\\Doctor\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-04T19:16:34.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
               "Title": "DoctorRepository.cs",
               "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Repositories\\DoctorRepository.cs",
               "RelativeDocumentMoniker": "DoctorWebApp\\Repositories\\DoctorRepository.cs",
@@ -481,19 +572,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Index.cshtml",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Views\\Patient\\Index.cshtml",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Views\\Patient\\Index.cshtml",
-              "RelativeToolTip": "DoctorWebApp\\Views\\Patient\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-04T18:54:59.544Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "Patient.cs",
               "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\Patient.cs",
               "RelativeDocumentMoniker": "DoctorWebApp\\Models\\Patient.cs",
@@ -505,19 +584,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Doctor.cs",
-              "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\Doctor.cs",
-              "RelativeDocumentMoniker": "DoctorWebApp\\Models\\Doctor.cs",
-              "ToolTip": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Models\\Doctor.cs",
-              "RelativeToolTip": "DoctorWebApp\\Models\\Doctor.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAA4wDEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T18:42:16.876Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "PatientRepository.cs",
               "DocumentMoniker": "C:\\Users\\287802\\source\\repos\\DoctorWebApp\\DoctorWebApp\\Repositories\\PatientRepository.cs",
               "RelativeDocumentMoniker": "DoctorWebApp\\Repositories\\PatientRepository.cs",
