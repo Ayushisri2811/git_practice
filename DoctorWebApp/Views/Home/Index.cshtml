@@ -5,15 +5,18 @@
 
     .card-box {
         border-radius: 15px;
-        padding: 30px;
+        padding: 25px;
         height: 230px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center; /* ✅ vertical center */
+        align-items: center; /* ✅ horizontal center */
+        gap: 20px; /* ✅ equal spacing */
         transition: 0.3s;
         color: #2c3e50;
         background: #ffffff;
         border: 1px solid #e6eef5;
+        text-align: center;
     }
 
         .card-box:hover {
@@ -21,28 +24,33 @@
             box-shadow: 0 12px 25px rgba(0,0,0,0.08);
         }
 
-        .card-box .btn {
-            width: 100%;
-            border-radius: 8px;
-            font-weight: 500;
+        .card-box h2 {
+            margin: 0;
+            font-size: 22px;
         }
 
-    
+        .card-box .btn {
+            width: 120px; /* ✅ uniform button width */
+            border-radius: 8px;
+            font-weight: 500;
+            padding: 6px 0;
+        }
 
+    /* Card Colors */
     .patient {
-        border-left: 6px solid #7fb3d5; 
+        border-left: 6px solid #7fb3d5;
     }
 
     .doctor {
-        border-left: 6px solid #82e0aa; 
+        border-left: 6px solid #82e0aa;
     }
 
     .appointment {
-        border-left: 6px solid #f7c59f; 
+        border-left: 6px solid #f7c59f;
     }
 
     .record {
-        border-left: 6px solid #f1948a; 
+        border-left: 6px solid #f1948a;
     }
 
     /* HEADER */
@@ -58,57 +66,46 @@
 
     <!-- HEADER -->
     <div class="text-center dashboard-header">
-
         <h1 style="font-weight:600;">🏥 HealthApp Dashboard</h1>
-        <p style="font-size:18px;">
-            Select a module to continue
-        </p>
-
+        <p style="font-size:18px;">Select a module to continue</p>
     </div>
 
     <!-- CARDS -->
-    <div class="row" style="margin-top:30px;">
+    <div class="row mt-4">
 
         <!-- PATIENT -->
         <div class="col-md-3 col-sm-6 mb-3">
-            <div class="card card-box patient text-center">
+            <div class="card card-box patient">
                 <h2>👤 Patient</h2>
-                <a href="/Patient/Index" class="btn btn-info text-white">
-                    Open
-                </a>
+                <a href="/Patient/Index" class="btn btn-info text-white">Open</a>
             </div>
         </div>
 
         <!-- DOCTOR -->
         <div class="col-md-3 col-sm-6 mb-3">
-            <div class="card card-box doctor text-center">
+            <div class="card card-box doctor">
                 <h2>🩺 Doctor</h2>
-                <a href="/Doctor/Index" class="btn btn-success text-white">
-                    Open
-                </a>
+                <a href="/Doctor/Index" class="btn btn-success text-white">Open</a>
             </div>
         </div>
 
         <!-- APPOINTMENT -->
         <div class="col-md-3 col-sm-6 mb-3">
-            <div class="card card-box appointment text-center">
+            <div class="card card-box appointment">
                 <h2>📅 Appointment</h2>
-                <a href="/Appointment/Index" class="btn btn-warning text-white">
-                    Open
-                </a>
+                <a href="/Appointment/Index" class="btn btn-warning text-white">Open</a>
             </div>
         </div>
 
         <!-- HEALTH RECORD -->
         <div class="col-md-3 col-sm-6 mb-3">
-            <div class="card card-box record text-center">
+            <div class="card card-box record">
                 <h2>📋 Health Record</h2>
-                <a href="/HealthRecord/Index" class="btn btn-danger text-white">
-                    Open
-                </a>
+                <a href="/HealthRecord/Index" class="btn btn-danger text-white">Open</a>
             </div>
         </div>
 
     </div>
 
 </div>
+``

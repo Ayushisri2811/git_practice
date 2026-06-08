@@ -1,0 +1,30 @@
+﻿@using DoctorWebApp.Models
+@model HealthRecord
+
+<div class="container mt-4">
+
+    <div class="header-box">
+        <h2>📝 Add Health Record</h2>
+    </div>
+
+    <div class="form-box">
+
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(m => m.AppointmentId)
+            @Html.HiddenFor(m => m.PatientId)
+            @Html.HiddenFor(m => m.DoctorId)
+
+            <label>Diagnosis</label>
+            @Html.TextBoxFor(m => m.Diagnosis, new { @class = "form-control" })
+
+            <label>Prescription</label>
+            @Html.TextBoxFor(m => m.Prescription, new { @class = "form-control" })
+
+            <label>Notes</label>
+            @Html.TextAreaFor(m => m.Notes, new { @class = "form-control" })
+
+            <button class="btn btn-success mt-3">Save</button>
+        }
+    </div>
+</div>

@@ -1,73 +1,80 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using DoctorWebApp.Models;
 
 namespace DoctorWebApp.Controllers
 {
-    using DoctorWebApp.Models;
-    using DoctorWebApp.Repositories;
-    using System.Web.Mvc;
-
     public class HealthRecordController : Controller
     {
+        private IHealthRecordRepository _repo = new HealthRecordRepository();
+        private IAppointmentRepository _appRepo = new AppointmentRepository();
+
+        // ✅ Handles /HealthRecord or /HealthRecord/Index
+        // No Index view needed ✅
         public ActionResult Index()
         {
-            return View(HealthRecordRepository.GetAll());
+            return RedirectToAction("PatientHistory", new { patientId = 1 });
         }
 
-        public ActionResult Details(int id)
+        // ✅ ADD RECORD (GET)
+        public ActionResult AddRecord(int appointmentId)
         {
-            return View(HealthRecordRepository.GetById(id));
-        }
+            var appointment = _appRepo.GetAll()
+                                      .FirstOrDefault(a => a.AppointmentId == appointmentId);
 
-        public ActionResult Create()
-        {
-            return View();
-        }
+            if (appointment == null)
+                return HttpNotFound();
 
-        [HttpPost]
-        public ActionResult Create(HealthRecord record)
-        {
-            ModelState.Remove("RecordId");
-
-            if (ModelState.IsValid)
+            // ✅ Prevent duplicate record
+            if (_repo.ExistsByAppointment(appointmentId))
             {
-                HealthRecordRepository.Add(record);
-                return RedirectToAction("Index");
+                return RedirectToAction("PatientHistory",
+                    new { patientId = appointment.PatientId });
             }
 
-            return View(record);
+            // ✅ Prepare model
+            var model = new HealthRecord
+            {
+                AppointmentId = appointment.AppointmentId,
+                PatientId = appointment.PatientId,
+                DoctorId = appointment.DoctorId,
+                PatientName = appointment.PatientName,
+                DoctorName = appointment.DoctorName,
+                DoctorSpecialisation = appointment.DoctorSpecialisation,
+                VisitDate = DateTime.Now
+            };
+
+            return View(model);
         }
 
-        public ActionResult Edit(int id)
-        {
-            return View(HealthRecordRepository.GetById(id));
-        }
-
+        // ✅ ADD RECORD (POST)
         [HttpPost]
-        public ActionResult Edit(HealthRecord record)
+        public ActionResult AddRecord(HealthRecord model)
         {
             if (ModelState.IsValid)
             {
-                HealthRecordRepository.Update(record);
-                return RedirectToAction("Index");
+                _repo.Add(model);
+
+                // ✅ mark appointment as having record
+                _appRepo.SetHealthRecordCreated(model.AppointmentId);
+
+                return RedirectToAction("PatientHistory",
+                    new { patientId = model.PatientId });
             }
 
-            return View(record);
+            return View(model);
         }
 
-        public ActionResult Delete(int id)
+        // ✅ PATIENT HISTORY
+        public ActionResult PatientHistory(int? patientId)
         {
-            return View(HealthRecordRepository.GetById(id));
-        }
+            if (patientId == null)
+                patientId = 1;   // default for testing
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            HealthRecordRepository.Delete(id);
-            return RedirectToAction("Index");
+            var data = _repo.GetByPatient(patientId.Value);
+
+            return View(data);
         }
     }
 }

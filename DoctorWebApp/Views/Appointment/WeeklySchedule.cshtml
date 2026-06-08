@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DoctorWebApp.Models.Appointment>
+
+<div class="container mt-4">
+
+    <div class="header-box">
+        <h2>📅 Weekly Schedule</h2>
+    </div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Slot</th>
+            <th>Status</th>
+        </tr>
+
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@a.PatientName</td>
+                <td>@a.ScheduledDate.ToShortDateString()</td>
+                <td>@a.TimeSlot</td>
+                <td>@a.Status</td>
+            </tr>
+        }
+    </table>
+</div>

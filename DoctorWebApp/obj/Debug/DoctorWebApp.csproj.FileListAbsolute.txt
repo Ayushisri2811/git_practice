@@ -77,3 +77,10 @@ C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\obj\Debug\DoctorWebApp.cs
 C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\obj\Debug\DoctorWe.C3030865.Up2Date
 C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\obj\Debug\DoctorWebApp.dll
 C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\obj\Debug\DoctorWebApp.pdb
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\Unity.Abstractions.dll
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\Unity.Container.dll
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\Unity.Mvc5.dll
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\Unity.Abstractions.pdb
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\Unity.Container.pdb

@@ -1,61 +1,91 @@
-﻿
-@model DoctorWebApp.Models.Appointment
+﻿@model DoctorWebApp.Models.Appointment
+@using DoctorWebApp.Models
 
-<div class="container">
-
-    <h2>Appointment Form</h2>
-
-    @using (Html.BeginForm())
-    {
-        @Html.HiddenFor(x => x.AppointmentId)
-
-        <div class="form-group">
-            <label>Patient Name</label>
-            @Html.TextBoxFor(x => x.PatientName,
-                new { @class = "form-control" })
-        </div>
-
-        <div class="form-group">
-            <label>Doctor Name</label>
-            @Html.TextBoxFor(x => x.DoctorName,
-                new { @class = "form-control" })
-        </div>
-
-        <div class="form-group">
-            <label>Appointment Date</label>
-            @Html.TextBoxFor(x => x.ScheduledDate,
-                "{0:yyyy-MM-dd}",
-                new { @class = "form-control", type = "date" })
-        </div>
-
-        <div class="form-group">
-            <label>Time Slot</label>
-            @Html.TextBoxFor(x => x.TimeSlot,
-                new { @class = "form-control" })
-        </div>
-
-        <div class="form-group">
-            <label>Status</label>
-            @Html.EnumDropDownListFor(x => x.Status,
-                new { @class = "form-control" })
-        </div>
-
-        <div class="form-group">
-            <label>Cancellation Reason</label>
-            @Html.TextAreaFor(x => x.CancellationReason,
-                new { @class = "form-control", rows = 3 })
-        </div>
-
-        <button type="submit"
-                class="btn btn-success">
-            Save
-        </button>
-
-        @Html.ActionLink("Back",
-            "Index",
-            null,
-            new { @class = "btn btn-default" })
+<style>
+    body {
+        background: #f5f8fa;
     }
 
-</div>
+    .header-box {
+        background: linear-gradient(135deg, #aed6f1, #d5f5e3);
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
+    .form-box {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        border: 1px solid #e6eef5;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+</style>
+
+<div class="container mt-4">
+
+    <div class="header-box">
+        <h2>📅 Book Appointment</h2>
+    </div>
+
+    <div class="form-box">
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+            <!-- ✅ Patient ID -->
+            <div class="form-group">
+                <label>Patient ID</label>
+                @Html.TextBoxFor(m => m.PatientId, new { @class = "form-control" })
+            </div>
+
+            <!-- ✅ Doctor Dropdown -->
+            <div class="form-group">
+                <label>Select Doctor</label>
+
+                <select name="DoctorId" class="form-control">
+                    <option value="">-- Select Doctor --</option>
+
+                    @foreach (var d in ViewBag.Doctors as IEnumerable<Doctor>)
+                    {
+                        <option value="@d.DoctorId">
+                            @d.FullName - (@d.Specialisation)
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <!-- ✅ Date -->
+            <div class="form-group">
+                <label>Date</label>
+                @Html.TextBoxFor(m => m.ScheduledDate,
+                    "{0:yyyy-MM-dd}",
+                    new
+                         {
+                        type = "date",
+                        @class = "form-control",
+                        min = DateTime.Now.ToString("yyyy-MM-dd")
+                    })
+            </div>
+
+            <!-- ✅ Time Slot -->
+            <div class="form-group">
+                <label>Time Slot</label>
+                <select name="TimeSlot" class="form-control">
+                    <option>10:00 AM</option>
+                    <option>11:00 AM</option>
+                    <option>12:00 PM</option>
+                </select>
+            </div>
+
+            <!-- ✅ Submit -->
+            <button class="btn btn-success mt-3">Book Appointment</button>
+        }
+
+    </div>
+</div>

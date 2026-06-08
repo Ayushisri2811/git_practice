@@ -1,70 +1,121 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using DoctorWebApp.Models;
 
-namespace DoctorWebApp.Repositories
+public class AppointmentRepository : IAppointmentRepository
 {
-    using DoctorWebApp.Models;
-    using System.Collections.Generic;
-    using System.Linq;
+    private static List<Appointment> _appointments = new List<Appointment>();
+    private static int _id = 1;
 
-    public static class AppointmentRepository
+    // ✅ Get all appointments
+    public IEnumerable<Appointment> GetAll()
     {
-        private static List<Appointment> appointments =
-            new List<Appointment>
+        return _appointments;
+    }
+
+    // ✅ Get appointments by patient
+    public IEnumerable<Appointment> GetByPatient(int patientId)
+    {
+        return _appointments
+            .Where(a => a.PatientId == patientId)
+            .OrderByDescending(a => a.ScheduledDate);
+    }
+
+    // ✅ Get today's schedule for doctor
+    public IEnumerable<Appointment> GetByDoctorDate(int doctorId, DateTime date)
+    {
+        return _appointments
+            .Where(a =>
+                a.DoctorId == doctorId &&
+                a.ScheduledDate.Date == date.Date)
+            .OrderBy(a => a.TimeSlot);
+    }
+
+    // ✅ Get weekly schedule for doctor
+    public IEnumerable<Appointment> GetByDoctorWeek(int doctorId, DateTime startDate)
+    {
+        var endDate = startDate.AddDays(7);
+
+        return _appointments
+            .Where(a =>
+                a.DoctorId == doctorId &&
+                a.ScheduledDate.Date >= startDate.Date &&
+                a.ScheduledDate.Date <= endDate.Date)
+            .OrderBy(a => a.ScheduledDate);
+    }
+
+    // ✅ Check slot availability (avoid double booking)
+    public bool IsSlotAvailable(int doctorId, DateTime date, string slot)
+    {
+        return !_appointments.Any(a =>
+            a.DoctorId == doctorId &&
+            a.ScheduledDate.Date == date.Date &&
+            a.TimeSlot == slot &&
+            a.Status != AppointmentStatus.Cancelled);
+    }
+
+    // ✅ Add new appointment
+    public void Add(Appointment appointment)
+    {
+        appointment.AppointmentId = _id++;
+        appointment.Status = AppointmentStatus.Pending;
+        appointment.HasHealthRecord = false;
+
+        _appointments.Add(appointment);
+    }
+
+    // ✅ Update status (Confirm / Cancel / Complete)
+    public void UpdateStatus(int id, AppointmentStatus status, string reason)
+    {
+        var app = _appointments.FirstOrDefault(a => a.AppointmentId == id);
+
+        if (app != null)
+        {
+            app.Status = status;
+
+            // ✅ Handle cancel reason
+            if (status == AppointmentStatus.Cancelled)
             {
-            new Appointment
-            {
-                AppointmentId = 1,
-                PatientName = "John Smith",
-                DoctorName = "Dr. Rajesh Kumar",
-                ScheduledDate = DateTime.Today.AddDays(1),
-                TimeSlot = "10:00 AM - 10:30 AM",
-                Status = AppointmentStatus.Confirmed
+                app.CancellationReason = reason;
             }
-            };
 
-        public static List<Appointment> GetAll()
-        {
-            return appointments;
-        }
-
-        public static Appointment GetById(int id)
-        {
-            return appointments.FirstOrDefault(x => x.AppointmentId == id);
-        }
-
-        public static void Add(Appointment appointment)
-        {
-            appointment.AppointmentId = appointments.Count > 0
-                ? appointments.Max(x => x.AppointmentId) + 1
-                : 1;
-
-            appointments.Add(appointment);
-        }
-
-        public static void Update(Appointment appointment)
-        {
-            var existing = GetById(appointment.AppointmentId);
-
-            if (existing != null)
+            // ✅ Handle completed
+            if (status == AppointmentStatus.Completed)
             {
-                existing.PatientName = appointment.PatientName;
-                existing.DoctorName = appointment.DoctorName;
-                existing.ScheduledDate = appointment.ScheduledDate;
-                existing.TimeSlot = appointment.TimeSlot;
-                existing.Status = appointment.Status;
-                existing.CancellationReason = appointment.CancellationReason;
+                app.CompletedDate = DateTime.Now;
             }
         }
+    }
 
-        public static void Delete(int id)
+    // ✅ Explicit mark complete method
+    public void MarkCompleted(int appointmentId)
+    {
+        var app = _appointments.FirstOrDefault(a => a.AppointmentId == appointmentId);
+
+        if (app != null)
         {
-            var appointment = GetById(id);
+            app.Status = AppointmentStatus.Completed;
+            app.CompletedDate = DateTime.Now;
+        }
+    }
 
-            if (appointment != null)
-                appointments.Remove(appointment);
+    // ✅ Check if health record already exists
+    public bool HasHealthRecord(int appointmentId)
+    {
+        var app = _appointments.FirstOrDefault(a => a.AppointmentId == appointmentId);
+
+        return app != null && app.HasHealthRecord;
+    }
+
+    // ✅ Mark health record created
+    public void SetHealthRecordCreated(int appointmentId)
+    {
+        var app = _appointments.FirstOrDefault(a => a.AppointmentId == appointmentId);
+
+        if (app != null)
+        {
+            app.HasHealthRecord = true;
         }
     }
 }

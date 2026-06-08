@@ -1,71 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using DoctorWebApp.Models;
 
-namespace DoctorWebApp.Repositories
+public class HealthRecordRepository : IHealthRecordRepository
 {
-    using DoctorWebApp.Models;
-    using System.Collections.Generic;
-    using System.Linq;
+    private static List<HealthRecord> _records = new List<HealthRecord>();
+    private static int _id = 1;
 
-    public static class HealthRecordRepository
+    // ✅ Add record
+    public void Add(HealthRecord record)
     {
-        private static List<HealthRecord> records =
-            new List<HealthRecord>
-            {
-            new HealthRecord
-            {
-                RecordId = 1,
-                PatientName = "John Smith",
-                DoctorName = "Dr. Rajesh Kumar",
-                VisitDate = DateTime.Today,
-                Diagnosis = "Fever",
-                Prescription = "Paracetamol",
-                Notes = "Take rest for 3 days"
-            }
-            };
+        record.RecordId = _id++;
+        _records.Add(record);
+    }
 
-        public static List<HealthRecord> GetAll()
-        {
-            return records;
-        }
+    // ✅ Get all
+    public IEnumerable<HealthRecord> GetAll()
+    {
+        return _records;
+    }
 
-        public static HealthRecord GetById(int id)
-        {
-            return records.FirstOrDefault(x => x.RecordId == id);
-        }
+    // ✅ Get by patient
+    public IEnumerable<HealthRecord> GetByPatient(int patientId)
+    {
+        return _records
+            .Where(r => r.PatientId == patientId)
+            .OrderByDescending(r => r.VisitDate);
+    }
 
-        public static void Add(HealthRecord record)
-        {
-            record.RecordId = records.Count > 0
-                ? records.Max(x => x.RecordId) + 1
-                : 1;
+    // ✅ Get by doctor
+    public IEnumerable<HealthRecord> GetByDoctor(int doctorId)
+    {
+        return _records
+            .Where(r => r.DoctorId == doctorId);
+    }
 
-            records.Add(record);
-        }
-
-        public static void Update(HealthRecord record)
-        {
-            var existing = GetById(record.RecordId);
-
-            if (existing != null)
-            {
-                existing.PatientName = record.PatientName;
-                existing.DoctorName = record.DoctorName;
-                existing.VisitDate = record.VisitDate;
-                existing.Diagnosis = record.Diagnosis;
-                existing.Prescription = record.Prescription;
-                existing.Notes = record.Notes;
-            }
-        }
-
-        public static void Delete(int id)
-        {
-            var record = GetById(id);
-
-            if (record != null)
-                records.Remove(record);
-        }
+    // ✅ Prevent duplicate record
+    public bool ExistsByAppointment(int appointmentId)
+    {
+        return _records
+            .Any(r => r.AppointmentId == appointmentId);
     }
 }

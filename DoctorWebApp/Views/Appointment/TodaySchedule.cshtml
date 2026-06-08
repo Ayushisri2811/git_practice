@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DoctorWebApp.Models.Appointment>
+
+<div class="container mt-4">
+
+    <div class="header-box">
+        <h2>🩺 Today's Schedule</h2>
+    </div>
+
+    <div class="table-box">
+
+        <table class="table table-bordered">
+
+            <tr>
+                <th>Patient</th>
+                <th>Date</th>
+                <th>Slot</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+            @foreach (var a in Model)
+            {
+                <tr>
+                    <td>@a.PatientName</td>
+                    <td>@a.ScheduledDate.ToShortDateString()</td>
+                    <td>@a.TimeSlot</td>
+
+                    <td>@a.Status</td>
+
+                    <td>
+                        @if (a.Status == DoctorWebApp.Models.AppointmentStatus.Pending)
+                        {
+                            @Html.ActionLink("Confirm", "UpdateStatus",
+                                new { id = a.AppointmentId, status = DoctorWebApp.Models.AppointmentStatus.Confirmed, doctorId = a.DoctorId },
+                                new { @class = "btn btn-success btn-sm me-1" })
+
+                            @Html.ActionLink("Cancel", "UpdateStatus",
+                                new { id = a.AppointmentId, status = DoctorWebApp.Models.AppointmentStatus.Cancelled, doctorId = a.DoctorId, reason = "Unavailable" },
+                                new { @class = "btn btn-danger btn-sm" })
+                        }
+
+                        @if (a.Status == DoctorWebApp.Models.AppointmentStatus.Confirmed)
+                        {
+                            @Html.ActionLink("Complete", "MarkCompleted",
+                                new { id = a.AppointmentId, doctorId = a.DoctorId },
+                                new { @class = "btn btn-primary btn-sm" })
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>

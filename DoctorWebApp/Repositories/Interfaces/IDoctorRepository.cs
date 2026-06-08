@@ -1,14 +1,18 @@
-﻿using System.Collections.Generic;
-using DoctorWebApp.Models;
+﻿using DoctorWebApp.Models;
+using System.Collections.Generic;
 
-namespace DoctorWebApp.Repository
+public interface IDoctorRepository
 {
-    public interface IDoctorRepository
-    {
-        IEnumerable<Doctor> GetAll(string specialisationFilter, string sortOrder);
-        Doctor GetById(int id);
-        void Add(Doctor doctor);
-        void Update(Doctor doctor);
-        void ToggleStatus(int id);
-    }
+    IEnumerable<Doctor> GetAll(string specialisationFilter, string sortOrder);
+
+    // ✅ NEW (recommended)
+    IEnumerable<Doctor> GetActiveDoctors();
+
+    Doctor GetById(int id);
+
+    void Add(Doctor doctor);
+
+    void Update(Doctor doctor);
+
+    void ToggleStatus(int id);
 }

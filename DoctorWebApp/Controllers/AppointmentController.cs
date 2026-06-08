@@ -1,77 +1,120 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Linq;
+using System.Web.Mvc;
 using DoctorWebApp.Models;
-using DoctorWebApp.Repositories;
+using DoctorWebApp.Repository;
 
-namespace DoctorWebApp.Controllers
+public class AppointmentController : Controller
 {
-    public class AppointmentController : Controller
+    private IAppointmentRepository _repo = new AppointmentRepository();
+    private IDoctorRepository _doctorRepo = new DoctorRepository();
+
+    // ✅ DASHBOARD
+    public ActionResult Index()
     {
-        // GET: Appointment
-        public ActionResult Index()
+        return View();
+    }
+
+    // ✅ BOOK APPOINTMENT (GET)
+    public ActionResult Create()
+    {
+        // ✅ Send doctors to view (for dropdown)
+        ViewBag.Doctors = _doctorRepo.GetAll(null, null);
+
+        return View();
+    }
+
+    // ✅ BOOK APPOINTMENT (POST)
+    [HttpPost]
+    public ActionResult Create(Appointment model)
+    {
+        // ✅ Repopulate dropdown on postback (VERY IMPORTANT)
+        ViewBag.Doctors = _doctorRepo.GetAll(null, null);
+
+        // ✅ No past date
+        if (model.ScheduledDate < DateTime.Today)
         {
-            return View(AppointmentRepository.GetAll());
+            ModelState.AddModelError("", "Cannot select past date");
         }
 
-        // GET: Details
-        public ActionResult Details(int id)
+        // ✅ Slot validation
+        if (!_repo.IsSlotAvailable(model.DoctorId, model.ScheduledDate, model.TimeSlot))
         {
-            return View(AppointmentRepository.GetById(id));
+            ModelState.AddModelError("", "This time slot is already booked!");
         }
 
-        // GET: Create
-        public ActionResult Create()
+        if (ModelState.IsValid)
         {
-            return View();
-        }
+            // ✅ Get doctor details
+            var doctor = _doctorRepo
+                .GetAll(null, null)
+                .FirstOrDefault(d => d.DoctorId == model.DoctorId);
 
-        // POST: Create
-        [HttpPost]
-        public ActionResult Create(Appointment appointment)
-        {
-            ModelState.Remove("AppointmentId"); // IMPORTANT FIX
-
-            if (ModelState.IsValid)
+            if (doctor != null)
             {
-                AppointmentRepository.Add(appointment);
-                return RedirectToAction("Index");
+                model.DoctorName = doctor.FullName;
+                model.DoctorSpecialisation = doctor.Specialisation.ToString();
             }
 
-            return View(appointment);
+            model.PatientName = "Patient " + model.PatientId;
+
+            _repo.Add(model);
+
+            return RedirectToAction("MyAppointments", new { patientId = model.PatientId });
         }
 
-        // GET: Edit
-        public ActionResult Edit(int id)
+        return View(model);
+    }
+
+    // ✅ PATIENT VIEW
+    public ActionResult MyAppointments(int? patientId)
+    {
+        if (patientId == null)
         {
-            return View(AppointmentRepository.GetById(id));
+            patientId = 1; // default test
         }
 
-        // POST: Edit
-        [HttpPost]
-        public ActionResult Edit(Appointment appointment)
+        var data = _repo.GetByPatient(patientId.Value);
+        return View(data);
+    }
+
+    // ✅ DOCTOR TODAY
+    public ActionResult TodaySchedule(int? doctorId)
+    {
+        if (doctorId == null)
         {
-            ModelState.Remove("AppointmentId");
-
-            if (ModelState.IsValid)
-            {
-                AppointmentRepository.Update(appointment);
-                return RedirectToAction("Index");
-            }
-
-            return View(appointment);
+            doctorId = 1;
         }
 
-        // GET: Delete
-        public ActionResult Delete(int id)
+        var data = _repo.GetByDoctorDate(doctorId.Value, DateTime.Today);
+        return View(data);
+    }
+
+    // ✅ DOCTOR WEEKLY
+    public ActionResult WeeklySchedule(int? doctorId)
+    {
+        if (doctorId == null)
         {
-            return View(AppointmentRepository.GetById(id));
+            doctorId = 1;
         }
 
-        // POST: Delete
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            AppointmentRepository.Delete(id);
-            return RedirectToAction("Index");
-        }
+        var data = _repo.GetByDoctorWeek(doctorId.Value, DateTime.Today);
+        return View(data);
+    }
+
+    // ✅ CONFIRM / CANCEL
+    public ActionResult UpdateStatus(int id, AppointmentStatus status, string reason, int doctorId)
+    {
+        _repo.UpdateStatus(id, status, reason);
+
+        return RedirectToAction("TodaySchedule", new { doctorId = doctorId });
+    }
+
+    // ✅ COMPLETE APPOINTMENT
+    public ActionResult MarkCompleted(int id, int doctorId)
+    {
+        _repo.MarkCompleted(id);
+
+        return RedirectToAction("AddRecord", "HealthRecord", new { appointmentId = id });
     }
 }

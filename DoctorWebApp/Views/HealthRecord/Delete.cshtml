@@ -1,26 +1,2 @@
-﻿@model DoctorWebApp.Models.HealthRecord
-
-<div class="container">
-    <h2>Delete Record</h2>
-
-    <div class="alert alert-danger">
-        Are you sure you want to delete this record?
-    </div>
-
-    <div class="card p-3">
-        <p><b>Patient:</b> @Model.PatientName</p>
-        <p><b>Doctor:</b> @Model.DoctorName</p>
-        <p><b>Diagnosis:</b> @Model.Diagnosis</p>
-    </div>
-
-    <br />
-
-    @using (Html.BeginForm())
-    {
-        @Html.HiddenFor(x => x.RecordId)
-
-        <button type="submit" class="btn btn-danger">Delete</button>
-        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-secondary" })
-    }
-</div>
+﻿
 

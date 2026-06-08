@@ -1,30 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace DoctorWebApp.Models
 {
-    using System;
-    using System.ComponentModel.DataAnnotations;
-
     public class HealthRecord
     {
         public int RecordId { get; set; }
 
-        [Required]
-        public string PatientName { get; set; }
+        public int AppointmentId { get; set; }
+        public int PatientId { get; set; }
+        public int DoctorId { get; set; }
 
-        [Required]
+        public string PatientName { get; set; }
         public string DoctorName { get; set; }
 
-        [Required]
-        [DataType(DataType.Date)]
+        public string DoctorSpecialisation { get; set; }
+
         public DateTime VisitDate { get; set; }
 
         [Required]
         public string Diagnosis { get; set; }
 
+        [Required]
         public string Prescription { get; set; }
 
         public string Notes { get; set; }

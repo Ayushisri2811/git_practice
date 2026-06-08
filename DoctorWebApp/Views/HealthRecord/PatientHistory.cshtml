@@ -1,0 +1,31 @@
+﻿
+@model IEnumerable<DoctorWebApp.Models.HealthRecord>
+
+<div class="container mt-4">
+
+    <div class="header-box">
+        <h2>📋 Health History</h2>
+    </div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Date</th>
+            <th>Doctor</th>
+            <th>Specialisation</th>
+            <th>Diagnosis</th>
+            <th>Prescription</th>
+        </tr>
+
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.VisitDate.ToShortDateString()</td>
+                <td>@r.DoctorName</td>
+                <td>@r.DoctorSpecialisation</td>
+                <td>@r.Diagnosis</td>
+                <td>@r.Prescription</td>
+            </tr>
+        }
+    </table>
+</div>
+``

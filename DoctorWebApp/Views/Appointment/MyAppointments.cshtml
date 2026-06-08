@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DoctorWebApp.Models.Appointment>
+
+<div class="container mt-4">
+
+    <div class="header-box">
+        <h2>📋 My Appointments</h2>
+    </div>
+
+    <div class="table-box">
+
+        <table class="table table-bordered">
+
+            <tr>
+                <th>Date</th>
+                <th>Doctor</th>
+                <th>Slot</th>
+                <th>Status</th>
+            </tr>
+
+            @if (!Model.Any())
+            {
+                <tr>
+                    <td colspan="4" class="text-center">No records</td>
+                </tr>
+            }
+
+            @foreach (var a in Model)
+            {
+                <tr>
+                    <td>@a.ScheduledDate.ToShortDateString()</td>
+                    <td>@a.DoctorName</td>
+                    <td>@a.TimeSlot</td>
+
+                    <td>
+                        @if (a.Status == DoctorWebApp.Models.AppointmentStatus.Confirmed)
+                        {
+                            <span class="badge bg-success">Confirmed</span>
+                        }
+                        else if (a.Status == DoctorWebApp.Models.AppointmentStatus.Cancelled)
+                        {
+                            <span class="badge bg-danger">Cancelled</span>
+                        }
+                        else if (a.Status == DoctorWebApp.Models.AppointmentStatus.Completed)
+                        {
+                            <span class="badge bg-primary">Completed</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning text-dark">Pending</span>
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
