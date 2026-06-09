@@ -1,5 +1,25 @@
-﻿
-@model IEnumerable<DoctorWebApp.Models.HealthRecord>
+﻿@model IEnumerable<DoctorWebApp.Models.HealthRecord>
+
+<style>
+    body {
+        background: #f5f8fa;
+    }
+
+    .header-box {
+        background: linear-gradient(135deg, #aed6f1, #d5f5e3);
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .table-box {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid #e6eef5;
+    }
+</style>
 
 <div class="container mt-4">
 
@@ -7,25 +27,43 @@
         <h2>📋 Health History</h2>
     </div>
 
-    <table class="table table-bordered">
-        <tr>
-            <th>Date</th>
-            <th>Doctor</th>
-            <th>Specialisation</th>
-            <th>Diagnosis</th>
-            <th>Prescription</th>
-        </tr>
+    <div class="table-box">
 
-        @foreach (var r in Model)
-        {
+        <table class="table table-bordered">
             <tr>
-                <td>@r.VisitDate.ToShortDateString()</td>
-                <td>@r.DoctorName</td>
-                <td>@r.DoctorSpecialisation</td>
-                <td>@r.Diagnosis</td>
-                <td>@r.Prescription</td>
+                <th>Appointment Date</th>
+                <th>Treatment Date</th>
+                <th>Doctor</th>
+                <th>Specialisation</th>
+                <th>Diagnosis</th>
+                <th>Prescription</th>
             </tr>
-        }
-    </table>
+
+            @if (!Model.Any())
+            {
+                <tr>
+                    <td colspan="6" class="text-center text-muted">
+                        No health records available
+                    </td>
+                </tr>
+            }
+
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <!-- ✅ FIXED: VisitDate → AppointmentDate -->
+                    <td>@r.AppointmentDate.ToShortDateString()</td>
+
+                    <!-- ✅ NEW: Treatment Date -->
+                    <td>@r.TreatmentDate.ToShortDateString()</td>
+
+                    <td>@r.DoctorName</td>
+                    <td>@r.DoctorSpecialisation</td>
+                    <td>@r.Diagnosis</td>
+                    <td>@r.Prescription</td>
+                </tr>
+            }
+        </table>
+
+    </div>
 </div>
-``

@@ -1,111 +1,99 @@
 ﻿<style>
-    body {
-        background: #f5f8fa;
+    .section-box {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 25px;
+        border: 1px solid #e6eef5;
+    }
+
+    .section-title {
+        margin-bottom: 15px;
+        font-weight: bold;
     }
 
     .card-box {
-        border-radius: 15px;
-        padding: 25px;
-        height: 230px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* ✅ vertical center */
-        align-items: center; /* ✅ horizontal center */
-        gap: 20px; /* ✅ equal spacing */
-        transition: 0.3s;
-        color: #2c3e50;
-        background: #ffffff;
-        border: 1px solid #e6eef5;
+        padding: 20px;
+        border-radius: 12px;
         text-align: center;
-    }
-
-        .card-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
-        }
-
-        .card-box h2 {
-            margin: 0;
-            font-size: 22px;
-        }
-
-        .card-box .btn {
-            width: 120px; /* ✅ uniform button width */
-            border-radius: 8px;
-            font-weight: 500;
-            padding: 6px 0;
-        }
-
-    /* Card Colors */
-    .patient {
-        border-left: 6px solid #7fb3d5;
-    }
-
-    .doctor {
-        border-left: 6px solid #82e0aa;
-    }
-
-    .appointment {
-        border-left: 6px solid #f7c59f;
-    }
-
-    .record {
-        border-left: 6px solid #f1948a;
-    }
-
-    /* HEADER */
-    .dashboard-header {
-        background: linear-gradient(135deg, #aed6f1, #d5f5e3);
-        color: #2c3e50;
-        border-radius: 15px;
-        padding: 40px;
+        background: #f9fbfc;
+        border: 1px solid #ddd;
     }
 </style>
 
-<div class="container-fluid" style="padding:30px;">
+<div class="container mt-4">
 
-    <!-- HEADER -->
-    <div class="text-center dashboard-header">
-        <h1 style="font-weight:600;">🏥 HealthApp Dashboard</h1>
-        <p style="font-size:18px;">Select a module to continue</p>
+    <!-- ✅ HEADER -->
+    <div class="text-center mb-4">
+        <h2>🏥 HealthApp Dashboard</h2>
     </div>
 
-    <!-- CARDS -->
-    <div class="row mt-4">
+    <!-- ✅ ✅ PATIENT DASHBOARD -->
+    <div class="section-box">
+        <h4 class="section-title">👤 Patient</h4>
 
-        <!-- PATIENT -->
-        <div class="col-md-3 col-sm-6 mb-3">
-            <div class="card card-box patient">
-                <h2>👤 Patient</h2>
-                <a href="/Patient/Index" class="btn btn-info text-white">Open</a>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="card-box">
+                    <h5>📅 Book Appointment</h5>
+                    <a href="/Appointment/Create" class="btn btn-primary mt-2">Open</a>
+                </div>
             </div>
-        </div>
 
-        <!-- DOCTOR -->
-        <div class="col-md-3 col-sm-6 mb-3">
-            <div class="card card-box doctor">
-                <h2>🩺 Doctor</h2>
-                <a href="/Doctor/Index" class="btn btn-success text-white">Open</a>
+            <div class="col-md-4">
+                <div class="card-box">
+                    <h5>📄 My Appointments</h5>
+                    <a href="/Appointment/MyAppointments?patientId=1" class="btn btn-success mt-2">Open</a>
+                </div>
             </div>
-        </div>
 
-        <!-- APPOINTMENT -->
-        <div class="col-md-3 col-sm-6 mb-3">
-            <div class="card card-box appointment">
-                <h2>📅 Appointment</h2>
-                <a href="/Appointment/Index" class="btn btn-warning text-white">Open</a>
+            <div class="col-md-4">
+                <div class="card-box">
+                    <h5>📋 Health History</h5>
+                    <a href="/HealthRecord/PatientHistory?patientId=1" class="btn btn-info mt-2">Open</a>
+                </div>
             </div>
-        </div>
 
-        <!-- HEALTH RECORD -->
-        <div class="col-md-3 col-sm-6 mb-3">
-            <div class="card card-box record">
-                <h2>📋 Health Record</h2>
-                <a href="/HealthRecord/Index" class="btn btn-danger text-white">Open</a>
+        </div>
+    </div>
+
+    <!-- ✅ ✅ DOCTOR DASHBOARD -->
+    <div class="section-box">
+        <h4 class="section-title">🩺 Doctor</h4>
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="card-box">
+                    <h5>📅 Today Schedule</h5>
+                    <a href="/Appointment/TodaySchedule?doctorId=1" class="btn btn-primary mt-2">Open</a>
+                </div>
             </div>
-        </div>
 
+            <div class="col-md-3">
+                <div class="card-box">
+                    <h5>📆 Weekly Schedule</h5>
+                    <a href="/Appointment/WeeklySchedule?doctorId=1" class="btn btn-success mt-2">Open</a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card-box">
+                    <h5>📝 Complete / Add Record</h5>
+                    <a href="/Appointment/TodaySchedule?doctorId=1" class="btn btn-warning mt-2">Open</a>
+                </div>
+            </div>
+
+            <!-- ✅ ✅ NEW: HEALTH HISTORY FOR DOCTOR -->
+            <div class="col-md-3">
+                <div class="card-box">
+                    <h5>📋 Health History</h5>
+                    <a href="/HealthRecord/PatientHistory?patientId=1" class="btn btn-info mt-2">View</a>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </div>
-``

@@ -84,3 +84,12 @@ C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\Unity.Mvc5.dll
 C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\Unity.Abstractions.pdb
 C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\Unity.Container.pdb
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\EntityFramework.dll
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\EntityFramework.SqlServer.dll
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\System.Net.Http.Formatting.dll
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\System.Web.Http.dll
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\Unity.WebApi.dll
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\EntityFramework.xml
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\EntityFramework.SqlServer.xml
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\System.Net.Http.Formatting.xml
+C:\Users\287802\source\repos\DoctorWebApp\DoctorWebApp\bin\System.Web.Http.xml

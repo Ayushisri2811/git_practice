@@ -1,3 +1,7 @@
 <Solution>
+  <Project Path="DoctorWebAPI/DoctorWebAPI.csproj" Id="aecf4ff0-a54d-437d-bc97-ac35a0b04efd" />
+  <Project Path="DoctorWebApp.Data/DoctorWebApp.Data.csproj" Id="fee1205a-172b-4a0f-9a9d-1de0faef5dee" />
+  <Project Path="DoctorWebApp.DTOs/DoctorWebApp.DTOs.csproj" Id="4bee8d22-c604-4a4d-908d-515381631e46" />
+  <Project Path="DoctorWebApp.Services/DoctorWebApp.Services.csproj" Id="65876e7c-3a3a-45ce-97ad-786be049dd70" />
   <Project Path="DoctorWebApp/DoctorWebApp.csproj" Id="fe00a49f-6452-44cd-9a3c-a139107208e4" />
 </Solution>

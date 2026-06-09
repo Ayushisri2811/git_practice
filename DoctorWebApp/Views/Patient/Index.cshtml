@@ -45,20 +45,26 @@
 
     <div class="table-box">
 
-        <!-- ✅ SEARCH -->
-        <form method="get" class="mb-3 d-flex gap-2">
-            <input type="text" name="searchTerm"
-                   value="@ViewBag.SearchTerm"
-                   placeholder="Search by ID / Name"
-                   class="form-control" />
+        <!-- ✅ SEARCH + FILTER -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
 
-            <button class="btn btn-primary text-white">Search</button>
-        </form>
+            <!-- ✅ SEARCH -->
+            <form method="get" class="d-flex gap-2">
+                <input type="text" name="searchTerm"
+                       value="@ViewBag.SearchTerm"
+                       placeholder="Search by ID / Name"
+                       class="form-control"
+                       style="width:250px;" />
 
-        <!-- ✅ FILTER BUTTON -->
-        <button onclick="toggleFilter()" class="btn btn-info mb-3 text-white">
-            Filter / Sort
-        </button>
+                <button class="btn btn-primary text-white">Search</button>
+            </form>
+
+            <!-- ✅ FILTER BUTTON -->
+            <button onclick="toggleFilter()" class="btn btn-info text-white">
+                Filter / Sort
+            </button>
+
+        </div>
 
         <!-- ✅ FILTER BOX -->
         <div id="filterBox" class="filter-box">
@@ -66,27 +72,38 @@
 
                 <input type="hidden" name="searchTerm" value="@ViewBag.SearchTerm" />
 
-                <label>Insurance</label>
-                <select name="insuranceFilter" class="form-control">
-                    <option value="">All</option>
-                    <option value="WithInsurance">With Insurance</option>
-                    <option value="WithoutInsurance">Without Insurance</option>
-                </select>
+                <div class="mb-2">
+                    <label>Insurance</label>
+                    <select name="insuranceFilter" class="form-control">
+                        <option value="">All</option>
+                        <option value="WithInsurance">With Insurance</option>
+                        <option value="WithoutInsurance">Without Insurance</option>
+                    </select>
+                </div>
 
-                <label class="mt-2">Sort</label>
-                <select name="sortOrder" class="form-control">
-                    <option value="asc">Ascending</option>
-                    <option value="desc">Descending</option>
-                </select>
+                <div class="mb-2">
+                    <label>Sort</label>
+                    <select name="sortOrder" class="form-control">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
 
-                <button class="btn btn-success mt-3">Apply</button>
+                <div class="text-end">
+                    <button class="btn btn-success mt-2">Apply</button>
+                </div>
+
             </form>
         </div>
 
-        <a href="/Patient/Create" class="btn btn-success mb-3 mt-2">
-            + Register Patient
-        </a>
+        <!-- ✅ REGISTER BUTTON -->
+        <div class="mb-3 mt-2">
+            <a href="/Patient/Create" class="btn btn-success">
+                + Register Patient
+            </a>
+        </div>
 
+        <!-- ✅ TABLE -->
         <table class="table table-bordered">
             <tr>
                 <th>ID</th>
@@ -114,10 +131,14 @@
                     <td>@item.DateOfBirth.ToShortDateString()</td>
                     <td>@item.Email</td>
                     <td>@(string.IsNullOrEmpty(item.InsuranceId) ? "No" : "Yes")</td>
+
+                    <!-- ✅ CLEAN ACTION BUTTONS -->
                     <td>
-                        @Html.ActionLink("View", "Details", new { id = item.PatientId }) |
-                        @Html.ActionLink("Edit", "Edit", new { id = item.PatientId }) |
-                        @Html.ActionLink("Deactivate", "Deactivate", new { id = item.PatientId })
+                        <div class="d-flex gap-2">
+                            @Html.ActionLink("View", "Details", new { id = item.PatientId }, new { @class = "btn btn-sm btn-primary" })
+                            @Html.ActionLink("Edit", "Edit", new { id = item.PatientId }, new { @class = "btn btn-sm btn-warning text-white" })
+                            @Html.ActionLink("Deactivate", "Deactivate", new { id = item.PatientId }, new { @class = "btn btn-sm btn-danger" })
+                        </div>
                     </td>
                 </tr>
             }

@@ -10,8 +10,7 @@ namespace DoctorWebApp.Controllers
         private IHealthRecordRepository _repo = new HealthRecordRepository();
         private IAppointmentRepository _appRepo = new AppointmentRepository();
 
-        // ✅ Handles /HealthRecord or /HealthRecord/Index
-        // No Index view needed ✅
+        // ✅ Default redirect
         public ActionResult Index()
         {
             return RedirectToAction("PatientHistory", new { patientId = 1 });
@@ -33,16 +32,20 @@ namespace DoctorWebApp.Controllers
                     new { patientId = appointment.PatientId });
             }
 
-            // ✅ Prepare model
+            // ✅ ✅ FIXED MAPPING
             var model = new HealthRecord
             {
                 AppointmentId = appointment.AppointmentId,
                 PatientId = appointment.PatientId,
                 DoctorId = appointment.DoctorId,
+
                 PatientName = appointment.PatientName,
                 DoctorName = appointment.DoctorName,
                 DoctorSpecialisation = appointment.DoctorSpecialisation,
-                VisitDate = DateTime.Now
+
+                // ✅ IMPORTANT FIX
+                AppointmentDate = appointment.ScheduledDate, // ✅ correct date from appointment
+                TreatmentDate = DateTime.Now                  // ✅ current date
             };
 
             return View(model);
@@ -70,7 +73,7 @@ namespace DoctorWebApp.Controllers
         public ActionResult PatientHistory(int? patientId)
         {
             if (patientId == null)
-                patientId = 1;   // default for testing
+                patientId = 1;
 
             var data = _repo.GetByPatient(patientId.Value);
 

@@ -18,9 +18,7 @@ public class AppointmentController : Controller
     // ✅ BOOK APPOINTMENT (GET)
     public ActionResult Create()
     {
-        // ✅ Send doctors to view (for dropdown)
         ViewBag.Doctors = _doctorRepo.GetAll(null, null);
-
         return View();
     }
 
@@ -28,24 +26,38 @@ public class AppointmentController : Controller
     [HttpPost]
     public ActionResult Create(Appointment model)
     {
-        // ✅ Repopulate dropdown on postback (VERY IMPORTANT)
+        // ✅ Repopulate dropdown
         ViewBag.Doctors = _doctorRepo.GetAll(null, null);
 
-        // ✅ No past date
-        if (model.ScheduledDate < DateTime.Today)
+        // ✅ ✅ FIXED: Validate past date + time
+        if (!string.IsNullOrEmpty(model.TimeSlot))
         {
-            ModelState.AddModelError("", "Cannot select past date");
+            try
+            {
+                DateTime parsedTime = DateTime.Parse(model.TimeSlot);
+
+                DateTime appointmentDateTime = model.ScheduledDate.Date.Add(parsedTime.TimeOfDay);
+
+                if (appointmentDateTime <= DateTime.Now)
+                {
+                    ModelState.AddModelError("", "Cannot book appointment in the past date and time.");
+                }
+            }
+            catch
+            {
+                ModelState.AddModelError("", "Invalid time slot format.");
+            }
         }
 
-        // ✅ Slot validation
+        // ✅ ✅ Slot validation
         if (!_repo.IsSlotAvailable(model.DoctorId, model.ScheduledDate, model.TimeSlot))
         {
             ModelState.AddModelError("", "This time slot is already booked!");
         }
 
+        // ✅ ✅ Final save
         if (ModelState.IsValid)
         {
-            // ✅ Get doctor details
             var doctor = _doctorRepo
                 .GetAll(null, null)
                 .FirstOrDefault(d => d.DoctorId == model.DoctorId);
@@ -71,7 +83,7 @@ public class AppointmentController : Controller
     {
         if (patientId == null)
         {
-            patientId = 1; // default test
+            patientId = 1;
         }
 
         var data = _repo.GetByPatient(patientId.Value);
@@ -106,7 +118,6 @@ public class AppointmentController : Controller
     public ActionResult UpdateStatus(int id, AppointmentStatus status, string reason, int doctorId)
     {
         _repo.UpdateStatus(id, status, reason);
-
         return RedirectToAction("TodaySchedule", new { doctorId = doctorId });
     }
 
@@ -114,7 +125,6 @@ public class AppointmentController : Controller
     public ActionResult MarkCompleted(int id, int doctorId)
     {
         _repo.MarkCompleted(id);
-
         return RedirectToAction("AddRecord", "HealthRecord", new { appointmentId = id });
     }
 }

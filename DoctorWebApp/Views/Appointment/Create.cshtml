@@ -42,22 +42,19 @@
             <div class="form-group">
                 <label>Patient ID</label>
                 @Html.TextBoxFor(m => m.PatientId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PatientId, "", new { @class = "text-danger" })
             </div>
 
             <!-- ✅ Doctor Dropdown -->
             <div class="form-group">
                 <label>Select Doctor</label>
 
-                <select name="DoctorId" class="form-control">
-                    <option value="">-- Select Doctor --</option>
+                @Html.DropDownListFor(m => m.DoctorId,
+                    new SelectList(ViewBag.Doctors, "DoctorId", "FullName"),
+                    "-- Select Doctor --",
+                    new { @class = "form-control" })
 
-                    @foreach (var d in ViewBag.Doctors as IEnumerable<Doctor>)
-                    {
-                        <option value="@d.DoctorId">
-                            @d.FullName - (@d.Specialisation)
-                        </option>
-                    }
-                </select>
+                @Html.ValidationMessageFor(m => m.DoctorId, "", new { @class = "text-danger" })
             </div>
 
             <!-- ✅ Date -->
@@ -66,21 +63,33 @@
                 @Html.TextBoxFor(m => m.ScheduledDate,
                     "{0:yyyy-MM-dd}",
                     new
-                         {
+                    {
                         type = "date",
                         @class = "form-control",
                         min = DateTime.Now.ToString("yyyy-MM-dd")
                     })
+                @Html.ValidationMessageFor(m => m.ScheduledDate, "", new { @class = "text-danger" })
             </div>
 
             <!-- ✅ Time Slot -->
             <div class="form-group">
                 <label>Time Slot</label>
-                <select name="TimeSlot" class="form-control">
-                    <option>10:00 AM</option>
-                    <option>11:00 AM</option>
-                    <option>12:00 PM</option>
-                </select>
+
+                @Html.DropDownListFor(m => m.TimeSlot,
+                    new SelectList(new List<string>
+                    {
+                        "09:00 AM",
+                        "10:00 AM",
+                        "11:00 AM",
+                        "12:00 PM",
+                        "02:00 PM",
+                        "03:00 PM",
+                        "04:00 PM"
+                    }),
+                    "-- Select Time --",
+                    new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(m => m.TimeSlot, "", new { @class = "text-danger" })
             </div>
 
             <!-- ✅ Submit -->
@@ -89,3 +98,23 @@
 
     </div>
 </div>
+
+<!-- ✅ ✅ CLIENT-SIDE VALIDATION (extra safety for UX) -->
+<script>
+    document.querySelector("form").addEventListener("submit", function (event) {
+
+        const dateValue = document.querySelector("[name='ScheduledDate']").value;
+        const timeValue = document.querySelector("[name='TimeSlot']").value;
+
+        if (dateValue && timeValue) {
+
+            const selectedDateTime = new Date(dateValue + " " + timeValue);
+            const now = new Date();
+
+            if (selectedDateTime <= now) {
+                alert("❌ Cannot select past date and time");
+                event.preventDefault();
+            }
+        }
+    });
+</script>

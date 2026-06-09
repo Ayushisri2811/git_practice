@@ -1,30 +1,132 @@
 ﻿@using DoctorWebApp.Models
 @model HealthRecord
 
+<style>
+    body {
+        background: #f5f8fa;
+    }
+
+    .header-box {
+        background: linear-gradient(135deg, #aed6f1, #d5f5e3);
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-box {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        border: 1px solid #e6eef5;
+    }
+
+    .history-box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 20px;
+        border: 1px solid #ddd;
+    }
+
+    label {
+        margin-top: 10px;
+    }
+</style>
+
 <div class="container mt-4">
 
+    <!-- ✅ HEADER -->
     <div class="header-box">
         <h2>📝 Add Health Record</h2>
     </div>
 
+    <!-- ✅ FORM -->
     <div class="form-box">
 
         @using (Html.BeginForm())
         {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
             @Html.HiddenFor(m => m.AppointmentId)
             @Html.HiddenFor(m => m.PatientId)
             @Html.HiddenFor(m => m.DoctorId)
 
+            <!-- ✅ DISPLAY DETAILS -->
+
+            <label>Patient</label>
+            @Html.TextBoxFor(m => m.PatientName,
+                new { @class = "form-control", @readonly = "readonly" })
+
+            <label>Doctor</label>
+            @Html.TextBoxFor(m => m.DoctorName,
+                new { @class = "form-control", @readonly = "readonly" })
+
+            <label>Specialisation</label>
+            @Html.TextBoxFor(m => m.DoctorSpecialisation,
+                new { @class = "form-control", @readonly = "readonly" })
+
+            <label>Appointment Date</label>
+            @Html.TextBoxFor(m => m.AppointmentDate,
+                "{0:yyyy-MM-dd}",
+                new { @class = "form-control", @readonly = "readonly" })
+
+            <label>Treatment Date</label>
+            @Html.TextBoxFor(m => m.TreatmentDate,
+                "{0:yyyy-MM-dd}",
+                new { @class = "form-control", @readonly = "readonly" })
+
+            <!-- ✅ INPUT FIELDS -->
+
             <label>Diagnosis</label>
-            @Html.TextBoxFor(m => m.Diagnosis, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.Diagnosis,
+                new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Diagnosis, "", new { @class = "text-danger" })
 
             <label>Prescription</label>
-            @Html.TextBoxFor(m => m.Prescription, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.Prescription,
+                new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Prescription, "", new { @class = "text-danger" })
 
             <label>Notes</label>
-            @Html.TextAreaFor(m => m.Notes, new { @class = "form-control" })
+            @Html.TextAreaFor(m => m.Notes,
+                new { @class = "form-control", rows = 3 })
 
             <button class="btn btn-success mt-3">Save</button>
         }
     </div>
+
+    <!-- ✅ ✅ NEW: PATIENT HISTORY FOR DOCTOR -->
+    <div class="history-box">
+        <h4>📋 Previous Health History</h4>
+
+        <table class="table table-bordered mt-3">
+            <tr>
+                <th>Date</th>
+                <th>Doctor</th>
+                <th>Diagnosis</th>
+            </tr>
+
+            @if (ViewBag.History != null && ((IEnumerable<HealthRecord>)ViewBag.History).Any())
+            {
+                foreach (var item in (IEnumerable<HealthRecord>)ViewBag.History)
+                {
+                    <tr>
+                        <td>@item.AppointmentDate.ToShortDateString()</td>
+                        <td>@item.DoctorName</td>
+                        <td>@item.Diagnosis</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3" class="text-center text-muted">
+                        No previous records
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
 </div>
