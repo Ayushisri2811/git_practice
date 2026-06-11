@@ -1,0 +1,218 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="container home-container">
+
+    <h1 class="text-center page-title">
+        HealthCare Management System
+    </h1>
+
+    <div class="row justify-content-center g-4">
+
+        <!-- Doctor Card -->
+        <div class="col-lg-4 col-md-6 d-flex">
+            <div class="card custom-card text-center flex-fill">
+                <div class="card-body d-flex flex-column">
+
+                    <div class="icon-circle doctor-icon">
+                        👨‍⚕️
+                    </div>
+
+                    <h3 class="card-title">Doctor</h3>
+
+                    <p class="card-text">
+                        Manage doctor details, schedules, and appointments.
+                    </p>
+
+                    <a href="@Url.Action("Index", "Doctor")"
+                       class="btn custom-btn doctor-btn mt-auto">
+                        Open
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Patient Card -->
+        <div class="col-lg-4 col-md-6 d-flex">
+            <div class="card custom-card text-center flex-fill">
+                <div class="card-body d-flex flex-column">
+
+                    <div class="icon-circle patient-icon">
+                        🧑‍🤝‍🧑
+                    </div>
+
+                    <h3 class="card-title">Patient</h3>
+
+                    <p class="card-text">
+                        Manage patient records and healthcare history.
+                    </p>
+
+                    <a href="@Url.Action("Index", "Patient")"
+                       class="btn custom-btn patient-btn mt-auto">
+                        Open
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointment Card -->
+        <div class="col-lg-4 col-md-6 d-flex">
+            <div class="card custom-card text-center flex-fill">
+                <div class="card-body d-flex flex-column">
+
+                    <div class="icon-circle appointment-icon">
+                        📅
+                    </div>
+
+                    <h3 class="card-title">Appointment</h3>
+
+                    <p class="card-text">
+                        Manage bookings and upcoming appointments.
+                    </p>
+
+                    <a href="@Url.Action("Index", "Appointment")"
+                       class="btn custom-btn appointment-btn mt-auto">
+                        Open
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+    body {
+        background: #f4fbfc;
+    }
+
+    .home-container {
+        margin-top: 60px;
+    }
+
+    .page-title {
+        font-weight: 800;
+        color: #123c4a;
+        margin-bottom: 50px;
+        font-size: 2.6rem;
+    }
+
+    .custom-card {
+        border: none;
+        border-radius: 20px;
+        padding: 25px;
+        width: 100%;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        background: #ffffff;
+    }
+
+        .custom-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+
+    .card-body {
+        min-height: 300px;
+    }
+
+    .icon-circle {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+    }
+
+    .doctor-icon {
+        background: #e6f2ff;
+    }
+
+    .patient-icon {
+        background: #e8f8f3;
+    }
+
+    .appointment-icon {
+        background: #fff4e6;
+    }
+
+    .card-title {
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #123c4a;
+    }
+
+    .card-text {
+        color: #6c7f86;
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+        line-height: 1.6;
+    }
+
+    .custom-btn {
+        padding: 10px 22px;
+        border-radius: 25px;
+        font-weight: 600;
+        color: #ffffff;
+        border: none;
+        text-decoration: none;
+    }
+
+        .custom-btn:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+    .doctor-btn {
+        background-color: #4a90c2;
+    }
+
+        .doctor-btn:hover {
+            background-color: #357aa3;
+        }
+
+    .patient-btn {
+        background-color: #38a889;
+    }
+
+        .patient-btn:hover {
+            background-color: #2d8c72;
+        }
+
+    .appointment-btn {
+        background-color: #f5b041;
+    }
+
+        .appointment-btn:hover {
+            background-color: #e09a2d;
+        }
+
+    @@media (max-width: 768px) {
+        .home-container {
+            margin-top: 35px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            margin-bottom: 35px;
+        }
+
+        .card-body {
+            min-height: auto;
+        }
+
+        .icon-circle {
+            width: 75px;
+            height: 75px;
+            font-size: 32px;
+        }
+    }
+</style>
