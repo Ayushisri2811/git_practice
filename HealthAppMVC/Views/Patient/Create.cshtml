@@ -2,181 +2,381 @@
 
 @{
     ViewBag.Title = "Register Patient";
+
+    var genderOptions = new List<System.Web.Mvc.SelectListItem>
+{
+        new System.Web.Mvc.SelectListItem
+        {
+            Text = "Male",
+            Value = "Male"
+        },
+        new System.Web.Mvc.SelectListItem
+        {
+            Text = "Female",
+            Value = "Female"
+        },
+        new System.Web.Mvc.SelectListItem
+        {
+            Text = "Other",
+            Value = "Other"
+        }
+    };
 }
 
-<h2>Register Patient</h2>
+<div class="container form-container">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    <div class="form-card">
 
-    <div class="form-horizontal">
+        <div class="form-header">
+            <div class="form-icon">🧑‍🤝‍🧑</div>
+            <h1>Register Patient</h1>
+            <p>Enter patient details to create a new patient record.</p>
+        </div>
 
-        @Html.ValidationSummary(
-            true,
-            "",
-            new { @class = "text-danger" })
+        @using (Html.BeginForm("Create", "Patient", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-group">
-
-            <label>Name</label>
-
-            @Html.TextBoxFor(
-                m => m.FullName,
-                new { @class = "form-control" })
-
-            @Html.ValidationMessageFor(
-                m => m.FullName,
+            @Html.ValidationSummary(
+                true,
                 "",
-                new { @class = "text-danger" })
+                new { @class = "text-danger validation-summary" })
 
-        </div>
+            <div class="row">
 
-        <div class="form-group">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Name</label>
 
-            <label>DOB</label>
+                        @Html.TextBoxFor(
+                            m => m.FullName,
+                            new
+                            {
+                                @class = "form-control custom-input",
+                                placeholder = "Enter full name"
+                            })
 
-            @Html.TextBoxFor(
-                m => m.DateOfBirth,
-                "{0:yyyy-MM-dd}",
-                new
-                {
-                    @class = "form-control",
-                    type = "date"
-                })
+                        @Html.ValidationMessageFor(
+                            m => m.FullName,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
 
-            @Html.ValidationMessageFor(
-                m => m.DateOfBirth,
-                "",
-                new { @class = "text-danger" })
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>DOB</label>
 
-        </div>
+                        @Html.TextBoxFor(
+                            m => m.DateOfBirth,
+                            "{0:yyyy-MM-dd}",
+                            new
+                            {
+                                @class = "form-control custom-input",
+                                type = "date",
+                                max = DateTime.Today.ToString("yyyy-MM-dd")
+                            })
 
-        <div class="form-group">
+                        @Html.ValidationMessageFor(
+                            m => m.DateOfBirth,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
 
-            <label>Gender</label>
+            </div>
 
-            @Html.DropDownListFor(
-                m => m.Gender,
-                new List<SelectListItem>
-                {
-                    new SelectListItem
-                    {
-                        Text = "Male",
-                        Value = "Male"
-                    },
+            <div class="row">
 
-                    new SelectListItem
-                    {
-                        Text = "Female",
-                        Value = "Female"
-                    },
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Gender</label>
 
-                    new SelectListItem
-                    {
-                        Text = "Other",
-                        Value = "Other"
-                    }
-                },
-                "--Select--",
-                new { @class = "form-control" })
+                        @Html.DropDownListFor(
+                            m => m.Gender,
+                            genderOptions,
+                            "-- Select Gender --",
+                            new { @class = "form-control custom-input" })
 
-            @Html.ValidationMessageFor(
-                m => m.Gender,
-                "",
-                new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(
+                            m => m.Gender,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Phone</label>
 
-        <div class="form-group">
+                        @Html.TextBoxFor(
+                            m => m.PhoneNumber,
+                            new
+                            {
+                                @class = "form-control custom-input",
+                                placeholder = "Enter 10 digit phone number",
+                                maxlength = "10"
+                            })
 
-            <label>Phone</label>
+                        @Html.ValidationMessageFor(
+                            m => m.PhoneNumber,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
 
-            @Html.TextBoxFor(
-                m => m.PhoneNumber,
-                new { @class = "form-control" })
+            </div>
 
-            @Html.ValidationMessageFor(
-                m => m.PhoneNumber,
-                "",
-                new { @class = "text-danger" })
+            <div class="row">
 
-        </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email</label>
 
-        <div class="form-group">
+                        @Html.TextBoxFor(
+                            m => m.Email,
+                            new
+                            {
+                                @class = "form-control custom-input",
+                                type = "email",
+                                placeholder = "Enter email address"
+                            })
 
-            <label>Email</label>
+                        @Html.ValidationMessageFor(
+                            m => m.Email,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
 
-            @Html.TextBoxFor(
-                m => m.Email,
-                new
-                {
-                    @class = "form-control",
-                    type = "email"
-                })
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Insurance ID</label>
 
-            @Html.ValidationMessageFor(
-                m => m.Email,
-                "",
-                new { @class = "text-danger" })
+                        @Html.TextBoxFor(
+                            m => m.InsuranceId,
+                            new
+                            {
+                                @class = "form-control custom-input",
+                                placeholder = "Enter insurance ID"
+                            })
 
-        </div>
+                        @Html.ValidationMessageFor(
+                            m => m.InsuranceId,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
+            </div>
 
-            <label>Insurance ID</label>
+            <div class="button-group">
 
-            @Html.TextBoxFor(
-                m => m.InsuranceId,
-                new { @class = "form-control" })
+                <input type="submit"
+                       id="savePatientBtn"
+                       value="Save Patient"
+                       class="btn custom-btn patient-btn" />
 
-        </div>
+                @Html.ActionLink(
+                    "Back to Patient List",
+                    "Index",
+                    "Patient",
+                    null,
+                    new { @class = "btn custom-btn cancel-btn" })
 
-        <br />
-
-        <input type="submit"
-               value="Save"
-               class="btn btn-success" />
-
-        @Html.ActionLink(
-            "Back",
-            "Index",
-            null,
-            new { @class = "btn btn-secondary" })
+            </div>
+        }
 
     </div>
-}
+
+</div>
+
+<style>
+    body {
+        background: #f4fbfc;
+    }
+
+    .form-container {
+        margin-top: 45px;
+        margin-bottom: 50px;
+    }
+
+    .form-card {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-icon {
+        width: 85px;
+        height: 85px;
+        margin: 0 auto 15px;
+        border-radius: 50%;
+        background: #e8f8f3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 38px;
+    }
+
+    .form-header h1 {
+        color: #123c4a;
+        font-weight: 800;
+        margin-bottom: 8px;
+    }
+
+    .form-header p {
+        color: #6c7f86;
+        font-size: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 22px;
+    }
+
+        .form-group label {
+            color: #123c4a;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+    .custom-input {
+        height: 45px;
+        border-radius: 12px;
+        border: 1px solid #d7e7ea;
+        box-shadow: none;
+        color: #37545c;
+    }
+
+        .custom-input:focus {
+            border-color: #38a889;
+            box-shadow: 0 0 0 0.15rem rgba(56, 168, 137, 0.15);
+        }
+
+    .validation-summary {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .button-group {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .custom-btn {
+        padding: 10px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        color: #ffffff;
+        border: none;
+        text-decoration: none;
+        margin: 5px;
+        display: inline-block;
+    }
+
+        .custom-btn:hover,
+        .custom-btn:focus {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+    .patient-btn {
+        background-color: #38a889;
+    }
+
+        .patient-btn:hover {
+            background-color: #2d8c72;
+        }
+
+        .patient-btn:disabled {
+            background-color: #9fcfc1;
+            cursor: not-allowed;
+        }
+
+    .cancel-btn {
+        background-color: #6c7f86;
+    }
+
+        .cancel-btn:hover {
+            background-color: #53666d;
+        }
+
+    .text-danger {
+        font-size: 0.9rem;
+        margin-top: 5px;
+        display: block;
+    }
+
+    @@media (max-width: 768px) {
+        .form-card {
+            padding: 25px 20px;
+        }
+
+        .form-header h1 {
+            font-size: 2rem;
+        }
+
+        .form-icon {
+            width: 75px;
+            height: 75px;
+            font-size: 32px;
+        }
+
+        .custom-btn {
+            width: 100%;
+            margin-top: 8px;
+        }
+    }
+</style>
 
 @section Scripts {
 
     @Scripts.Render("~/bundles/jqueryval")
 
     <script>
-
         $(document).ready(function () {
 
             $("#DateOfBirth").change(function () {
 
-                var selectedDate =
-                    new Date($(this).val());
-
-                var today =
-                    new Date();
-
-                today.setHours(0, 0, 0, 0);
+                var selectedValue = $(this).val();
 
                 $(".dob-error").remove();
+
+                if (!selectedValue) {
+                    $("#savePatientBtn").prop("disabled", false);
+                    return;
+                }
+
+                var selectedDate = new Date(selectedValue);
+                var today = new Date();
+
+                today.setHours(0, 0, 0, 0);
+                selectedDate.setHours(0, 0, 0, 0);
 
                 if (selectedDate > today) {
 
                     $(this).after(
                         '<span class="text-danger dob-error">' +
                         'Future date not allowed.' +
-                        '</span>');
+                        '</span>'
+                    );
+
+                    $("#savePatientBtn").prop("disabled", true);
+                }
+                else {
+                    $("#savePatientBtn").prop("disabled", false);
                 }
             });
 
         });
-
     </script>
 }

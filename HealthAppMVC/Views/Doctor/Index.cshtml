@@ -1,178 +1,228 @@
 ﻿@model IEnumerable<SharedDto.DoctorDtos.DoctorDto>
 
 @{
-    ViewBag.Title = "Doctors";
+    ViewBag.Title = "Doctor Management";
 }
 
-<h2>Doctors</h2>
+<div class="container mt-4">
 
-<p>
-    @Html.ActionLink(
-        "Add Doctor",
-        "Create",
-        null,
-        new { @class = "btn btn-primary" })
-</p>
+    <!-- ✅ HEADER -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold text-dark">Doctor Management</h1>
+        <p class="text-muted">
+            View, add, edit and manage doctor records.
+        </p>
+    </div>
 
-<form method="get">
-    <div class="row mb-3">
+    <!-- ✅ ACTION BUTTONS -->
+    <div class="d-flex justify-content-end mb-4">
 
-        <div class="col-md-4">
+        <a href="/Doctor/Create" class="btn btn-success rounded-pill me-2 px-4">
+            + Add New Doctor
+        </a>
 
-            <select name="specialisation"
-                    class="form-control">
-
-                <option value="">
-                    All Specialisations
-                </option>
-
-                @foreach (var item in ViewBag.Specialisations)
-                {
-                    <option value="@item">
-                        @item
-                    </option>
-                }
-
-            </select>
-
-        </div>
-
-        <div class="col-md-2">
-
-            <button type="submit"
-                    class="btn btn-secondary">
-                Filter
-            </button>
-
-        </div>
+        <!-- ✅ GLOBAL HISTORY BUTTON -->
+        <button class="btn btn-secondary rounded-pill px-4"
+                onclick="openHealthHistory()">
+            View Patient History
+        </button>
 
     </div>
-</form>
 
-<table class="table table-bordered table-striped">
+    <!-- ✅ CARD TABLE -->
+    <div class="card shadow-lg border-0 rounded-4 p-4">
 
-    <thead>
+        <table class="table align-middle">
 
-        <tr>
-            <th>Name</th>
+            <thead class="text-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Specialisation</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Experience</th>
+                    <th>Fee</th>
+                    <th>Status</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
 
-            <th>Specialisation</th>
+            <tbody>
+                @foreach (var doctor in Model)
+                {
+                    <tr>
 
-            <th>Phone</th>
+                        <td>@doctor.FullName</td>
+                        <td>@doctor.Specialisation</td>
+                        <td>@doctor.DoctorPhoneNo</td>
+                        <td>@doctor.DoctorEmail</td>
+                        <td>@doctor.YearsOfExperience</td>
+                        <td>₹ @doctor.ConsultationFee</td>
 
-            <th>Email</th>
+                        <td>
+                            @if (doctor.IsActive)
+                            {
+                                <span class="badge bg-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Inactive</span>
+                            }
+                        </td>
 
-            <th>Experience</th>
+                        <td class="text-center">
 
-            <th>Fee</th>
+                            <!-- ✅ VIEW -->
+                            <button class="btn btn-primary rounded-pill px-3"
+                                    onclick="openDoctorPopup(@doctor.DoctorId)">
+                                View
+                            </button>
 
-            <th>Status</th>
+                            <!-- ✅ EDIT -->
+                            <button class="btn btn-success rounded-pill px-3 ms-1"
+                                    onclick="openEditPopup(@doctor.DoctorId)">
+                                Edit
+                            </button>
 
-            <th width="250">
-                Actions
-            </th>
-        </tr>
+                            <!-- ✅ ADD HEALTH RECORD -->
+                            <button class="btn btn-dark rounded-pill px-3 ms-1"
+                                    onclick="openAddHealthRecord()">
+                                Add Record
+                            </button>
 
-    </thead>
+                            <!-- ✅ ACTIVATE / DEACTIVATE -->
+                            <button class="btn btn-danger rounded-pill px-3 ms-1"
+                                    onclick="confirmStatusChange(@doctor.DoctorId, '@doctor.IsActive')">
+                                @(doctor.IsActive ? "Deactivate" : "Activate")
+                            </button>
 
-    <tbody>
+                        </td>
 
-        @foreach (var doctor in Model)
-        {
-            <tr>
+                    </tr>
+                }
+            </tbody>
 
-                <td>
-                    @doctor.FullName
-                </td>
+        </table>
 
-                <td>
-                    @doctor.Specialisation
-                </td>
+    </div>
 
-                <td>
-                    @doctor.DoctorPhoneNo
-                </td>
+</div>
 
-                <td>
-                    @doctor.DoctorEmail
-                </td>
+<!-- ✅ COMMON MODAL -->
+<div class="modal fade" id="commonModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content rounded-4" id="modalContent">
+            Loading...
+        </div>
+    </div>
+</div>
 
-                <td>
-                    @doctor.YearsOfExperience
-                </td>
+<!-- ✅ CONFIRM MODAL -->
+<div class="modal fade" id="confirmModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-4">
 
-                <td>
-                    ₹ @doctor.ConsultationFee
-                </td>
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title">Warning</h5>
+            </div>
 
-                <td>
+            <div class="modal-body text-center"></div>
 
-                    @if (doctor.IsActive)
-                    {
-                        <span class="badge bg-success">
-                            Active
-                        </span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-danger">
-                            Inactive
-                        </span>
-                    }
+            <div class="modal-footer justify-content-center">
+                <button class="btn btn-secondary rounded-pill px-4"
+                        data-bs-dismiss="modal">
+                    Cancel
+                </button>
 
-                </td>
+                <a id="confirmBtn" class="btn btn-danger rounded-pill px-4">
+                    Yes
+                </a>
+            </div>
 
-                <td>
+        </div>
+    </div>
+</div>
 
-                    @Html.ActionLink(
-                        "Details",
-                        "Details",
-                        new
-                        {
-                            id =
-                            doctor.DoctorId
-                        },
-                        new
-                        {
-                            @class =
-                            "btn btn-info btn-sm"
-                        })
+<!-- ✅ SCRIPTS -->
+<script>
 
-                    @Html.ActionLink(
-                        "Edit",
-                        "Edit",
-                        new
-                        {
-                            id =
-                            doctor.DoctorId
-                        },
-                        new
-                        {
-                            @class =
-                            "btn btn-warning btn-sm"
-                        })
+    // ✅ VIEW
+    function openDoctorPopup(id) {
 
-                    @Html.ActionLink(
-                        doctor.IsActive
-                            ? "Deactivate"
-                            : "Activate",
-                        "ChangeStatus",
-                        new
-                        {
-                            id =
-                            doctor.DoctorId
-                        },
-                        new
-                        {
-                            @class =
-                            "btn btn-danger btn-sm"
-                        })
+        var modal = new bootstrap.Modal(document.getElementById('commonModal'));
+        modal.show();
 
-                </td>
+        fetch('/Doctor/Details/' + id)
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('modalContent').innerHTML = data;
+            });
+    }
 
-            </tr>
+    // ✅ EDIT
+    function openEditPopup(id) {
+
+        var modal = new bootstrap.Modal(document.getElementById('commonModal'));
+        modal.show();
+
+        fetch('/Doctor/Edit/' + id)
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('modalContent').innerHTML = data;
+            });
+    }
+
+    // ✅ PATIENT HISTORY
+    function openHealthHistory() {
+
+        var modal = new bootstrap.Modal(document.getElementById('commonModal'));
+        modal.show();
+
+        fetch('/HealthRecord/PatientHistory')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('modalContent').innerHTML = data;
+            });
+    }
+
+    // ✅ ADD HEALTH RECORD
+    function openAddHealthRecord() {
+
+        var modal = new bootstrap.Modal(document.getElementById('commonModal'));
+        modal.show();
+
+        fetch('/HealthRecord/Create')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('modalContent').innerHTML = data;
+            });
+    }
+
+    // ✅ ACTIVATE / DEACTIVATE
+    function confirmStatusChange(id, isActive) {
+
+        var modal = new bootstrap.Modal(document.getElementById('confirmModal'));
+
+        let actionText = isActive === 'True'
+            ? "deactivate this doctor"
+            : "activate this doctor";
+
+        document.querySelector("#confirmModal .modal-body").innerHTML =
+            "Are you sure you want to " + actionText + "?";
+
+        document.getElementById("confirmBtn").href =
+            "/Doctor/ChangeStatus/" + id;
+
+        modal.show();
+    }
+
+    // ✅ CLOSE MODAL (common for all)
+    document.addEventListener("click", function (e) {
+        if (e.target.closest(".close-doctor-modal")) {
+            var modalEl = document.getElementById('commonModal');
+            var modal = bootstrap.Modal.getInstance(modalEl);
+            modal.hide();
         }
+    });
 
-    </tbody>
-
-</table>
+</script>

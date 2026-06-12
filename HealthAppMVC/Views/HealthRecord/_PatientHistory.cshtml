@@ -1,0 +1,116 @@
+﻿
+@model IEnumerable<SharedDto.HealthRecordDtos.HealthRecordDto>
+
+<!-- ✅ HEADER -->
+<div class="modal-header custom-modal-header">
+    <h4 class="modal-title">📋 Patient Health History</h4>
+    <button class="close-doctor-modal">&times;</button>
+</div>
+
+<!-- ✅ BODY -->
+<div class="modal-body">
+
+    <!-- SEARCH -->
+    <div class="form-group mb-3">
+        <label>Patient Name</label>
+
+        <input type="text" id="patientName" class="form-control custom-input" />
+        <input type="hidden" id="patientId" />
+
+        <span id="patientError" class="text-danger"></span>
+    </div>
+
+    <button id="btnHistory"
+            class="btn btn-primary rounded-pill mb-3">
+        View History
+    </button>
+
+    <!-- TABLE -->
+    <div class="table-box">
+
+        <table class="table table-hover align-middle">
+
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Doctor</th>
+                    <th>Diagnosis</th>
+                    <th>Prescription</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+
+            <tbody id="historyTableBody">
+
+                <tr>
+                    <td colspan="5" class="text-center text-muted">
+                        Search a patient to view records
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- ✅ FOOTER -->
+<div class="modal-footer">
+    <button class="btn custom-btn cancel-btn close-doctor-modal">
+        Close
+    </button>
+</div>
+
+<script>
+$(function () {
+
+    // ✅ AUTOCOMPLETE
+    $("#patientName").autocomplete({
+        source: '/HealthRecord/SearchPatientNames',
+        minLength: 1,
+        select: function (event, ui) {
+            $("#patientId").val(ui.item.value);
+        }
+    });
+
+    // ✅ LOAD HISTORY
+    $("#btnHistory").click(function () {
+
+        var id = $("#patientId").val();
+        var name = $("#patientName").val();
+
+        if (!name) {
+            $("#patientError").text("Please enter patient name.");
+            return;
+        }
+
+        if (!id || id === "0") {
+            $("#patientError").text("No patient found.");
+            return;
+        }
+
+        $("#patientError").text("");
+
+        $.get('/HealthRecord/SearchPatientHistory',
+            { patientId: id },
+            function (data) {
+
+                let rows = '';
+
+                if (!data || data.length === 0) {
+                    rows = `<tr>
+                                <td colspan="5" class="text-center">
+                                    No records found
+                                </td>
+                            </tr>`;
+                } else {
+
+                    data.forEach(x => {
+                        rows += `<tr>
+                            <td>${x.VisitDateFormatted}</td>
+                            <td>${x.DoctorName}</td>
+                            <td>${x.Diagnosis}</td>
+
+

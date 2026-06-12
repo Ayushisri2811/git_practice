@@ -1,0 +1,100 @@
+﻿@model SharedDto.PatientDtos.PatientDto
+
+<!-- ✅ HEADER -->
+<div class="modal-header custom-modal-header">
+
+    <h4 class="modal-title">👤 Patient Details</h4>
+
+    <button type="button" class="close-doctor-modal">
+        &times;
+    </button>
+
+</div>
+
+<!-- ✅ BODY -->
+<div class="modal-body">
+
+    <!-- ✅ PROFILE HEADER -->
+    <div class="modal-profile-header">
+
+        <div class="modal-profile-icon">
+            👤
+        </div>
+
+        <h3>@Model.FullName</h3>
+
+        <p>
+            Patient profile and healthcare information
+        </p>
+
+    </div>
+
+    <!-- ✅ DETAILS GRID -->
+    <div class="modal-details-grid">
+
+        <div class="detail-item">
+            <span class="detail-label">Patient ID</span>
+            <span class="detail-value">#@Model.PatientId</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Full Name</span>
+            <span class="detail-value">@Model.FullName</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Date of Birth</span>
+            <span class="detail-value">
+                @Model.DateOfBirth.ToString("dd MMM yyyy")
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Gender</span>
+            <span class="detail-value">@Model.Gender</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Email</span>
+            <span class="detail-value">@Model.Email</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Phone Number</span>
+            <span class="detail-value">📞 @Model.PhoneNumber</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Insurance ID</span>
+            <span class="detail-value">
+                @if (!string.IsNullOrWhiteSpace(Model.InsuranceId))
+                {
+                    @Model.InsuranceId
+                }
+                else
+                {
+                    <span class="text-muted">N/A</span>
+                }
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Created Date</span>
+            <span class="detail-value">
+                @Model.CreatedDate.ToString("dd MMM yyyy")
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ✅ FOOTER -->
+<div class="modal-footer">
+
+    <button type="button"
+            class="btn custom-btn cancel-btn close-doctor-modal">
+        Close
+    </button>
+
+</div>

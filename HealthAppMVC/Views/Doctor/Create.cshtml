@@ -2,178 +2,331 @@
 
 @{
     ViewBag.Title = "Add Doctor";
+
+    var specialisationItems =
+        new System.Collections.Generic.List<System.Web.Mvc.SelectListItem>();
+
+    if (ViewBag.Specialisations != null)
+    {
+        foreach (string item in ViewBag.Specialisations)
+        {
+            specialisationItems.Add(
+                new System.Web.Mvc.SelectListItem
+                {
+                    Text = item,
+                    Value = item
+                });
+        }
+    }
 }
 
-<h2>Add Doctor</h2>
+<div class="container doctor-form-container">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    <div class="form-card">
 
-    @Html.ValidationSummary(
-        true,
-        "",
-        new { @class = "text-danger" })
+        <div class="form-header">
+            <div class="form-icon">👨‍⚕️</div>
+            <h1>Add Doctor</h1>
+            <p>Enter doctor details to register a new doctor.</p>
+        </div>
 
-    <div class="form-group">
-        <label>Name</label>
+        @using (Html.BeginForm("Create", "Doctor", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
 
-        @Html.TextBoxFor(
-            m => m.FullName,
-            new { @class = "form-control" })
+            @Html.ValidationSummary(
+                true,
+                "",
+                new { @class = "text-danger validation-summary" })
 
-        @Html.ValidationMessageFor(
-            m => m.FullName,
-            "",
-            new { @class = "text-danger" })
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Name</label>
+
+                        @Html.TextBoxFor(
+                            m => m.FullName,
+                            new
+                            {
+                                @class = "form-control custom-input",
+                                placeholder = "Enter doctor name"
+                            })
+
+                        @Html.ValidationMessageFor(
+                            m => m.FullName,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Specialisation</label>
+
+                        @Html.DropDownListFor(
+                            m => m.Specialisation,
+                            specialisationItems,
+                            "-- Select Specialisation --",
+                            new { @class = "form-control custom-input" })
+
+                        @Html.ValidationMessageFor(
+                            m => m.Specialisation,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Phone Number</label>
+
+                        @Html.TextBoxFor(
+                            m => m.DoctorPhoneNo,
+                            new
+                            {
+                                @class = "form-control custom-input",
+                                placeholder = "Enter phone number",
+                                maxlength = "10"
+                            })
+
+                        @Html.ValidationMessageFor(
+                            m => m.DoctorPhoneNo,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email</label>
+
+                        @Html.TextBoxFor(
+                            m => m.DoctorEmail,
+                            new
+                            {
+                                @class = "form-control custom-input",
+                                type = "email",
+                                placeholder = "Enter email address"
+                            })
+
+                        @Html.ValidationMessageFor(
+                            m => m.DoctorEmail,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Experience</label>
+
+                        @Html.TextBoxFor(
+                            m => m.YearsOfExperience,
+                            new
+                            {
+                                @class = "form-control custom-input",
+                                type = "number",
+                                min = "0",
+                                placeholder = "Enter years of experience"
+                            })
+
+                        @Html.ValidationMessageFor(
+                            m => m.YearsOfExperience,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Consultation Fee</label>
+
+                        @Html.TextBoxFor(
+                            m => m.ConsultationFee,
+                            new
+                            {
+                                @class = "form-control custom-input",
+                                type = "number",
+                                step = "0.01",
+                                min = "0",
+                                placeholder = "Enter consultation fee"
+                            })
+
+                        @Html.ValidationMessageFor(
+                            m => m.ConsultationFee,
+                            "",
+                            new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="button-group">
+
+                <button type="submit"
+                        class="btn custom-btn doctor-btn">
+                    Save Doctor
+                </button>
+
+                @Html.ActionLink(
+                    "Back to Doctor List",
+                    "Index",
+                    "Doctor",
+                    null,
+                    new { @class = "btn custom-btn cancel-btn" })
+
+            </div>
+        }
+
     </div>
 
-    <div class="form-group">
-        <label>Specialisation</label>
+</div>
 
-        @Html.DropDownListFor(
-            m => m.Specialisation,
-            new List<SelectListItem>
-            {
-                new SelectListItem
-                {
-                    Text = "Cardiologist",
-                    Value = "Cardiologist"
-                },
+<style>
+    body {
+        background: #f4fbfc;
+    }
 
-                new SelectListItem
-                {
-                    Text = "Dermatologist",
-                    Value = "Dermatologist"
-                },
+    .doctor-form-container {
+        margin-top: 45px;
+        margin-bottom: 50px;
+    }
 
-                new SelectListItem
-                {
-                    Text = "Neurologist",
-                    Value = "Neurologist"
-                },
+    .form-card {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
 
-                new SelectListItem
-                {
-                    Text = "Orthopedic",
-                    Value = "Orthopedic"
-                },
+    .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
 
-                new SelectListItem
-                {
-                    Text = "Pediatrician",
-                    Value = "Pediatrician"
-                },
+    .form-icon {
+        width: 85px;
+        height: 85px;
+        margin: 0 auto 15px;
+        border-radius: 50%;
+        background: #e6f2ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 38px;
+    }
 
-                new SelectListItem
-                {
-                    Text = "General Physician",
-                    Value = "GeneralPhysician"
-                },
+    .form-header h1 {
+        color: #123c4a;
+        font-weight: 800;
+        margin-bottom: 8px;
+    }
 
-                new SelectListItem
-                {
-                    Text = "Psychiatrist",
-                    Value = "Psychiatrist"
-                },
+    .form-header p {
+        color: #6c7f86;
+        font-size: 1rem;
+    }
 
-                new SelectListItem
-                {
-                    Text = "ENT",
-                    Value = "ENT"
-                },
+    .form-group {
+        margin-bottom: 22px;
+    }
 
-                new SelectListItem
-                {
-                    Text = "Gynecologist",
-                    Value = "Gynecologist"
-                }
-            },
-            "--Select--",
-            new { @class = "form-control" })
+        .form-group label {
+            color: #123c4a;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
 
-        @Html.ValidationMessageFor(
-            m => m.Specialisation,
-            "",
-            new { @class = "text-danger" })
-    </div>
+    .custom-input {
+        height: 45px;
+        border-radius: 12px;
+        border: 1px solid #d7e7ea;
+        box-shadow: none;
+        color: #37545c;
+    }
 
-    <div class="form-group">
-        <label>Phone Number</label>
+        .custom-input:focus {
+            border-color: #4a90c2;
+            box-shadow: 0 0 0 0.15rem rgba(74, 144, 194, 0.15);
+        }
 
-        @Html.TextBoxFor(
-            m => m.DoctorPhoneNo,
-            new { @class = "form-control" })
+    .validation-summary {
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
-        @Html.ValidationMessageFor(
-            m => m.DoctorPhoneNo,
-            "",
-            new { @class = "text-danger" })
-    </div>
+    .button-group {
+        text-align: center;
+        margin-top: 25px;
+    }
 
-    <div class="form-group">
-        <label>Email</label>
+    .custom-btn {
+        padding: 10px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        color: #ffffff;
+        border: none;
+        text-decoration: none;
+        margin: 5px;
+        display: inline-block;
+    }
 
-        @Html.TextBoxFor(
-            m => m.DoctorEmail,
-            new
-            {
-                @class = "form-control",
-                type = "email"
-            })
+        .custom-btn:hover,
+        .custom-btn:focus {
+            color: #ffffff;
+            text-decoration: none;
+        }
 
-        @Html.ValidationMessageFor(
-            m => m.DoctorEmail,
-            "",
-            new { @class = "text-danger" })
-    </div>
+    .doctor-btn {
+        background-color: #4a90c2;
+    }
 
-    <div class="form-group">
-        <label>Experience</label>
+        .doctor-btn:hover {
+            background-color: #357aa3;
+        }
 
-        @Html.TextBoxFor(
-            m => m.YearsOfExperience,
-            new
-            {
-                @class = "form-control",
-                type = "number"
-            })
+    .cancel-btn {
+        background-color: #6c7f86;
+    }
 
-        @Html.ValidationMessageFor(
-            m => m.YearsOfExperience,
-            "",
-            new { @class = "text-danger" })
-    </div>
+        .cancel-btn:hover {
+            background-color: #53666d;
+        }
 
-    <div class="form-group">
-        <label>Consultation Fee</label>
+    .text-danger {
+        font-size: 0.9rem;
+        margin-top: 5px;
+        display: block;
+    }
 
-        @Html.TextBoxFor(
-            m => m.ConsultationFee,
-            new
-            {
-                @class = "form-control",
-                type = "number",
-                step = "0.01"
-            })
+    @@media (max-width: 768px) {
+        .form-card {
+            padding: 25px 20px;
+        }
 
-        @Html.ValidationMessageFor(
-            m => m.ConsultationFee,
-            "",
-            new { @class = "text-danger" })
-    </div>
+        .form-header h1 {
+            font-size: 2rem;
+        }
 
-    <br />
+        .custom-btn {
+            width: 100%;
+            margin-top: 8px;
+        }
+    }
+</style>
 
-    <button type="submit"
-            class="btn btn-success">
-        Save
-    </button>
-
-    @Html.ActionLink(
-        "Back",
-        "DoctorServices",
-        "Home",
-        null,
-        new { @class = "btn btn-secondary" })
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

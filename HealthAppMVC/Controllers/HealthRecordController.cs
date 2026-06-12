@@ -8,137 +8,120 @@ using System.Web.Mvc;
 
 namespace HealthAppMVC.Controllers
 {
-    public class HealthRecordController
-        : Controller
+    public class HealthRecordController : Controller
     {
-        private readonly
-            IHealthRecordApiService
-            _healthRecordService;
-
-        private readonly
-            IPatientApiService
-            _patientService;
+        private readonly IHealthRecordApiService _healthRecordService;
+        private readonly IPatientApiService _patientService;
 
         public HealthRecordController(
             IHealthRecordApiService healthRecordService,
             IPatientApiService patientService)
         {
-            _healthRecordService =
-                healthRecordService;
-
-            _patientService =
-                patientService;
+            _healthRecordService = healthRecordService;
+            _patientService = patientService;
         }
 
-        // GET:
-        // HealthRecord/Create?appointmentId=1
-        [HttpGet]
-        public ActionResult Create(
-            int appointmentId)
+        // ✅ ✅ NEW: LOAD HISTORY POPUP
+        public ActionResult PatientHistory()
         {
-            CreateHealthRecordDto dto =
-                new CreateHealthRecordDto
-                {
-                    AppointmentId =
-                        appointmentId
-                };
-
-            return View(dto);
+            return PartialView("_PatientHistory");
         }
 
-        // POST:
-        // HealthRecord/Create
+        // ✅ ✅ UPDATED: CREATE (GET) → POPUP
+        [HttpGet]
+        public ActionResult Create(int appointmentId = 0)
+        {
+            var dto = new CreateHealthRecordDto
+            {
+                AppointmentId = appointmentId
+            };
+
+            // 🔥 IMPORTANT: return PartialView instead of View
+            return PartialView("_AddHealthRecord", dto);
+        }
+
+        // ✅ ✅ UPDATED: CREATE (POST) → AJAX SUPPORT
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult>
-            Create(
-                CreateHealthRecordDto dto)
+        public async Task<ActionResult> Create(CreateHealthRecordDto dto)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return View(dto);
+                    return PartialView("_AddHealthRecord", dto);
                 }
 
-                await _healthRecordService
-                    .AddAsync(dto);
+                await _healthRecordService.AddAsync(dto);
 
-                TempData["Success"] =
-                    "Health Record Added Successfully";
-
-                return RedirectToAction(
-                    "SearchPatientHistory");
+                // ✅ For AJAX success
+                return Json(new { success = true });
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError(
-                    "",
-                    ex.Message);
-
-                return View(dto);
+                ModelState.AddModelError("", ex.Message);
+                return PartialView("_AddHealthRecord", dto);
             }
         }
 
-        // GET:
-        // HealthRecord/Details/1
-        public async Task<ActionResult>
-            Details(int id)
+        // ✅ DETAILS (no change)
+        public async Task<ActionResult> Details(int id)
         {
-            var record =
-                await _healthRecordService
-                    .GetByIdAsync(id);
+            var record = await _healthRecordService.GetByIdAsync(id);
 
             if (record == null)
-            {
                 return HttpNotFound();
-            }
 
             return View(record);
         }
 
-        // GET:
-        // HealthRecord/SearchPatientHistory
-        public async Task<ActionResult>
-            SearchPatientHistory(
-                int? patientId)
+        // ✅ ✅ KEEP THIS (for normal page navigation if needed)
+        public async Task<ActionResult> SearchPatientHistory(int? patientId)
         {
-            IEnumerable<HealthRecordDto>
-                records =
-                    Enumerable.Empty
-                        <HealthRecordDto>();
+            IEnumerable<HealthRecordDto> records =
+                Enumerable.Empty<HealthRecordDto>();
 
             if (patientId.HasValue)
             {
-                records =
-                    await _healthRecordService
-                        .GetPatientHistoryAsync(
-                            patientId.Value);
+                records = await _healthRecordService
+                    .GetPatientHistoryAsync(patientId.Value);
             }
 
             return View(records);
         }
 
-        public async Task<JsonResult>
-            SearchPatientNames(
-                string term)
+        // ✅ ✅ NEW: AJAX HISTORY (IMPORTANT)
+        public async Task<JsonResult> SearchPatientHistoryAjax(int patientId)
         {
-            var patients =
-                await _patientService
-                    .SearchByNameAsync(term);
+            var records = await _healthRecordService
+                .GetPatientHistoryAsync(patientId);
 
-            var result =
-                patients
-                .Select(p => new
-                {
-                    label = p.FullName,
-                    value = p.PatientId
-                })
-                .ToList();
+            var result = records.Select(x => new
+            {
+                VisitDateFormatted = x.VisitDate.ToString("dd-MM-yyyy"),
+                x.DoctorName,
+                x.Diagnosis,
+                x.Prescription,
+                x.Notes
+            });
 
-            return Json(
-                result,
-                JsonRequestBehavior.AllowGet);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        // ✅ AUTOCOMPLETE (no change)
+        public async Task<JsonResult> SearchPatientNames(string term)
+        {
+            var patients = await _patientService
+                .SearchByNameAsync(term);
+
+            var result = patients.Select(p => new
+            {
+                label = p.FullName,
+                value = p.PatientId
+            });
+
+            return Json(result.ToList(),
+                        JsonRequestBehavior.AllowGet);
         }
     }
 }

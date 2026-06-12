@@ -1,0 +1,106 @@
+﻿@model SharedDto.DoctorDtos.DoctorDto
+
+<!-- ✅ HEADER -->
+<div class="modal-header custom-modal-header">
+
+    <h4 class="modal-title">
+        👨‍⚕️ Doctor Details
+    </h4>
+
+    <button type="button"
+            class="close-doctor-modal">
+        &times;
+    </button>
+
+</div>
+
+<!-- ✅ BODY -->
+<div class="modal-body">
+
+    <!-- PROFILE SECTION -->
+    <div class="modal-profile-header">
+
+        <div class="modal-profile-icon">
+            👨‍⚕️
+        </div>
+
+        <h3>@Model.FullName</h3>
+
+        <p>
+            Doctor profile and consultation information
+        </p>
+
+    </div>
+
+    <!-- DETAILS GRID -->
+    <div class="modal-details-grid">
+
+        <div class="detail-item">
+            <span class="detail-label">Doctor ID</span>
+            <span class="detail-value">#@Model.DoctorId</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Full Name</span>
+            <span class="detail-value">@Model.FullName</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Specialisation</span>
+            <span class="detail-value">@Model.Specialisation</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Phone</span>
+            <span class="detail-value">📞 @Model.DoctorPhoneNo</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Email</span>
+            <span class="detail-value">✉️ @Model.DoctorEmail</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Experience</span>
+            <span class="detail-value">@Model.YearsOfExperience years</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Consultation Fee</span>
+            <span class="detail-value text-success fw-bold">
+                ₹ @Model.ConsultationFee
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">Status</span>
+
+            <span class="detail-value">
+                @if (Model.IsActive)
+                {
+                    <span class="status-badge active-badge">
+                        ✅ Active
+                    </span>
+                }
+                else
+                {
+                    <span class="status-badge inactive-badge">
+                        ❌ Inactive
+                    </span>
+                }
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ✅ FOOTER -->
+<div class="modal-footer">
+
+    <button type="button"
+            class="btn custom-btn cancel-btn close-doctor-modal">
+        Close
+    </button>
+
+</div>

@@ -1,94 +1,128 @@
-﻿@model IEnumerable<SharedDto.PatientDtos.PatientDto>
+﻿@using System.Linq
+@model IEnumerable<SharedDto.PatientDtos.PatientDto>
 
 @{
     ViewBag.Title = "View Patient Details";
 }
 
-<link rel="stylesheet"
-      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<div class="container patient-search-container">
 
-<div class="card shadow">
-
-    <div class="card-header bg-info text-white">
-        <h3>🔍 View Patient Details</h3>
+    <div class="page-header-section">
+        <h1 class="page-title">View Patient Details</h1>
+        <p class="page-subtitle">Search and view patient records by name or patient ID.</p>
     </div>
 
-    <div class="card-body">
+    <div class="search-card">
 
-        <div class="row mb-3">
+        <div class="row">
 
             <div class="col-md-8">
+                <label class="search-label">Search Patient</label>
 
                 <input type="text"
                        id="patientSearch"
-                       class="form-control"
-                       placeholder="Search patient by name..." />
-
+                       class="form-control custom-search-input"
+                       placeholder="Search patient by name or ID..." />
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 search-actions">
 
-                <a href="@Url.Action(
-                            "PatientServices",
-                            "Home")"
-                   class="btn btn-secondary">
-                    Back
-                </a>
+                <button type="button"
+                        id="clearSearch"
+                        class="btn custom-btn clear-btn">
+                    Clear
+                </button>
+
+                @Html.ActionLink(
+                    "Back",
+                    "Index",
+                    "Patient",
+                    null,
+                    new { @class = "btn custom-btn patient-btn" })
 
             </div>
 
         </div>
 
-        <hr />
+    </div>
 
-        @if (Model != null && Model.Any())
-        {
-            foreach (var patient in Model)
+    <div id="patientResultCount" class="result-count"></div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="patient-card-list">
+
+            @foreach (var patient in Model)
             {
-                <div class="patient-card-wrapper">
+                <div class="patient-card-wrapper"
+                     data-patient-name="@patient.FullName"
+                     data-patient-id="@patient.PatientId">
 
-                    <div class="card mb-3 border-start border-4 border-info">
+                    <div class="patient-card">
 
-                        <div class="card-body">
+                        <div class="patient-card-header">
 
-                            <h5 class="patient-name">
-                                👤 @patient.FullName
-                            </h5>
+                            <div class="patient-avatar">
+                                👤
+                            </div>
 
-                            <p>
-                                <strong>Patient ID:</strong>
-                                @patient.PatientId
-                            </p>
+                            <div>
+                                <h3 class="patient-name">
+                                    @patient.FullName
+                                </h3>
 
-                            <p>
-                                <strong>Date Of Birth:</strong>
-                                @patient.DateOfBirth.ToString("dd-MMM-yyyy")
-                            </p>
+                                <span class="patient-id-badge">
+                                    ID: @patient.PatientId
+                                </span>
+                            </div>
 
-                            <p>
-                                <strong>Gender:</strong>
-                                @patient.Gender
-                            </p>
+                        </div>
 
-                            <p>
-                                <strong>Phone:</strong>
-                                @patient.PhoneNumber
-                            </p>
+                        <div class="patient-details-grid">
 
-                            <p>
-                                <strong>Email:</strong>
-                                @patient.Email
-                            </p>
+                            <div class="detail-item">
+                                <span class="detail-label">Patient ID</span>
+                                <span class="detail-value">@patient.PatientId</span>
+                            </div>
 
-                            <p>
-                                <strong>Insurance ID:</strong>
-                                @patient.InsuranceId
-                            </p>
+                            <div class="detail-item">
+                                <span class="detail-label">Date of Birth</span>
+                                <span class="detail-value">@patient.DateOfBirth.ToString("dd MMM yyyy")</span>
+                            </div>
 
-                            <p>
-                                <strong>Created:</strong>
-                                @patient.CreatedDate.ToString("dd-MMM-yyyy")
-                            </p>
+                            <div class="detail-item">
+                                <span class="detail-label">Gender</span>
+                                <span class="detail-value">@patient.Gender</span>
+                            </div>
+
+                            <div class="detail-item">
+                                <span class="detail-label">Phone</span>
+                                <span class="detail-value">@patient.PhoneNumber</span>
+                            </div>
+
+                            <div class="detail-item">
+                                <span class="detail-label">Email</span>
+                                <span class="detail-value">@patient.Email</span>
+                            </div>
+
+                            <div class="detail-item">
+                                <span class="detail-label">Insurance ID</span>
+                                <span class="detail-value">
+                                    @if (!string.IsNullOrWhiteSpace(patient.InsuranceId))
+                                    {
+                                        @patient.InsuranceId
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">N/A</span>
+                                    }
+                                </span>
+                            </div>
+
+                            <div class="detail-item">
+                                <span class="detail-label">Created Date</span>
+                                <span class="detail-value">@patient.CreatedDate.ToString("dd MMM yyyy")</span>
+                            </div>
 
                         </div>
 
@@ -97,89 +131,305 @@
                 </div>
             }
 
-            <div id="noResults"
-                 class="alert alert-warning"
-                 style="display:none;">
+        </div>
 
-                No patients found.
-
-            </div>
-        }
-        else
-        {
-            <div class="alert alert-info">
-                No patients found.
-            </div>
-        }
-
-    </div>
+        <div id="noResults" class="empty-state" style="display:none;">
+            <div class="empty-icon">🔍</div>
+            <h3>No Patients Found</h3>
+            <p>No patient matched your search.</p>
+        </div>
+    }
+    else
+    {
+        <div class="empty-state">
+            <div class="empty-icon">🧑‍🤝‍🧑</div>
+            <h3>No Patients Found</h3>
+            <p>No patient records are available right now.</p>
+        </div>
+    }
 
 </div>
 
-@section Scripts{
+<style>
+    body {
+        background: #f4fbfc;
+    }
 
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    .patient-search-container {
+        margin-top: 45px;
+        margin-bottom: 50px;
+    }
+
+    .page-header-section {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .page-title {
+        font-weight: 800;
+        color: #123c4a;
+        font-size: 2.4rem;
+        margin-bottom: 8px;
+    }
+
+    .page-subtitle {
+        color: #6c7f86;
+        font-size: 1rem;
+    }
+
+    .search-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .search-label {
+        color: #123c4a;
+        font-weight: 700;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .custom-search-input {
+        height: 46px;
+        border-radius: 14px;
+        border: 1px solid #d7e7ea;
+        box-shadow: none;
+        color: #37545c;
+    }
+
+        .custom-search-input:focus {
+            border-color: #38a889;
+            box-shadow: 0 0 0 0.15rem rgba(56, 168, 137, 0.15);
+        }
+
+    .search-actions {
+        text-align: right;
+        padding-top: 26px;
+    }
+
+    .custom-btn {
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-weight: 600;
+        color: #ffffff;
+        border: none;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px;
+    }
+
+        .custom-btn:hover,
+        .custom-btn:focus {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+    .patient-btn {
+        background-color: #38a889;
+    }
+
+        .patient-btn:hover {
+            background-color: #2d8c72;
+        }
+
+    .clear-btn {
+        background-color: #6c7f86;
+    }
+
+        .clear-btn:hover {
+            background-color: #53666d;
+        }
+
+    .result-count {
+        color: #6c7f86;
+        font-weight: 600;
+        margin-bottom: 18px;
+        text-align: right;
+    }
+
+    .patient-card-list {
+        margin-top: 20px;
+    }
+
+    .patient-card-wrapper {
+        margin-bottom: 25px;
+    }
+
+    .patient-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border-left: 5px solid #38a889;
+    }
+
+        .patient-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+
+    .patient-card-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 22px;
+    }
+
+    .patient-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: #e8f8f3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 34px;
+    }
+
+    .patient-name {
+        color: #123c4a;
+        font-weight: 800;
+        margin: 0 0 6px 0;
+        font-size: 1.5rem;
+    }
+
+    .patient-id-badge {
+        background: #e8f8f3;
+        color: #2d8c72;
+        font-weight: 700;
+        padding: 5px 12px;
+        border-radius: 15px;
+        display: inline-block;
+        font-size: 0.9rem;
+    }
+
+    .patient-details-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .detail-item {
+        background: #f7fcfd;
+        border-radius: 14px;
+        padding: 16px;
+        border: 1px solid #e3f0f2;
+    }
+
+    .detail-label {
+        display: block;
+        color: #6c7f86;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+        font-weight: 600;
+    }
+
+    .detail-value {
+        color: #123c4a;
+        font-size: 1rem;
+        font-weight: 700;
+        word-break: break-word;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 50px 20px;
+        background: #ffffff;
+        border-radius: 20px;
+        color: #6c7f86;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        margin-top: 25px;
+    }
+
+    .empty-icon {
+        font-size: 60px;
+        margin-bottom: 15px;
+    }
+
+    .empty-state h3 {
+        color: #123c4a;
+        font-weight: 700;
+    }
+
+    @@media (max-width: 768px) {
+        .page-title {
+            font-size: 2rem;
+        }
+
+        .search-actions {
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        .custom-btn {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .patient-details-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .result-count {
+            text-align: center;
+        }
+    }
+</style>
+
+@section Scripts {
 
     <script>
+        $(document).ready(function () {
 
-        $(function () {
+            function filterPatients() {
 
-            $("#patientSearch").autocomplete({
+                var searchText = $("#patientSearch").val().toLowerCase().trim();
+                var visibleCount = 0;
 
-                source:
-                    '@Url.Action(
-                        "SearchPatientNames",
-                        "Patient")'
+                $(".patient-card-wrapper").each(function () {
 
-            });
+                    var patientName = ($(this).attr("data-patient-name") || "").toLowerCase();
+                    var patientId = ($(this).attr("data-patient-id") || "").toLowerCase();
 
-            $("#patientSearch").on(
-                "input",
-                function () {
-
-                    var searchText =
-                        $(this)
-                            .val()
-                            .toLowerCase();
-
-                    var visibleCount = 0;
-
-                    $(".patient-card-wrapper")
-                        .each(function () {
-
-                            var patientName =
-                                $(this)
-                                    .find(".patient-name")
-                                    .text()
-                                    .toLowerCase();
-
-                            if (patientName
-                                .indexOf(searchText) > -1)
-                            {
-                                $(this).show();
-
-                                visibleCount++;
-                            }
-                            else
-                            {
-                                $(this).hide();
-                            }
-
-                        });
-
-                    if (visibleCount === 0)
-                    {
-                        $("#noResults").show();
+                    if (patientName.indexOf(searchText) > -1 || patientId.indexOf(searchText) > -1) {
+                        $(this).show();
+                        visibleCount++;
                     }
-                    else
-                    {
-                        $("#noResults").hide();
+                    else {
+                        $(this).hide();
                     }
 
                 });
 
+                if (visibleCount === 0) {
+                    $("#noResults").show();
+                }
+                else {
+                    $("#noResults").hide();
+                }
+
+                if (searchText.length > 0) {
+                    $("#patientResultCount").text(visibleCount + " patient(s) found");
+                }
+                else {
+                    $("#patientResultCount").text("");
+                }
+            }
+
+            $("#patientSearch").on("keyup input", function () {
+                filterPatients();
+            });
+
+            $("#clearSearch").click(function () {
+                $("#patientSearch").val("");
+                filterPatients();
+                $("#patientSearch").focus();
+            });
+
         });
-
     </script>
-
 }

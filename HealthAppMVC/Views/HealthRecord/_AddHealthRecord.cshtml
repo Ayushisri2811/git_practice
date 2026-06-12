@@ -1,0 +1,106 @@
+﻿
+@model SharedDto.HealthRecordDtos.CreateHealthRecordDto
+
+<!-- ✅ HEADER -->
+<div class="modal-header custom-modal-header">
+
+    <h4 class="modal-title">
+        🩺 Add Health Record
+    </h4>
+
+    <button class="close-doctor-modal">&times;</button>
+
+</div>
+
+@using (Html.BeginForm("Create", "HealthRecord",
+    FormMethod.Post,
+    new { id = "healthRecordForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.AppointmentId)
+
+    <!-- ✅ BODY -->
+    <div class="modal-body">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-grid">
+
+            <div class="form-group full-width">
+                <label>Diagnosis</label>
+                @Html.TextAreaFor(m => m.Diagnosis,
+                    new
+                         {
+                        @class = "form-control custom-input",
+                        rows = 3,
+                        placeholder = "Enter diagnosis"
+                    })
+            </div>
+
+            <div class="form-group full-width">
+                <label>Prescription</label>
+                @Html.TextAreaFor(m => m.Prescription,
+                    new
+                         {
+                        @class = "form-control custom-input",
+                        rows = 3
+                    })
+            </div>
+
+            <div class="form-group full-width">
+                <label>Notes</label>
+                @Html.TextAreaFor(m => m.Notes,
+                    new
+                         {
+                        @class = "form-control custom-input",
+                        rows = 4
+                    })
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ✅ FOOTER -->
+    <div class="modal-footer">
+
+        <button type="submit"
+                class="btn custom-btn doctor-btn">
+            ✅ Save Record
+        </button>
+
+        <button type="button"
+                class="btn custom-btn cancel-btn close-doctor-modal">
+            Cancel
+        </button>
+
+    </div>
+}
+
+<!-- ✅ AJAX SUBMIT -->
+<script>
+$("#healthRecordForm").submit(function (e) {
+
+    e.preventDefault();
+
+    $.post($(this).attr("action"), $(this).serialize(), function (res) {
+
+        if (res.success) {
+
+            alert("Health record saved ✅");
+
+            var modal =
+                bootstrap.Modal.getInstance(
+                    document.getElementById('commonModal')
+                );
+
+            modal.hide();
+        }
+        else {
+            $("#modalContent").html(res);
+        }
+
+    });
+});
+</script>
+

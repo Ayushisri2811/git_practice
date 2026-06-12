@@ -4,132 +4,162 @@
     ViewBag.Title = "Book Appointment";
 }
 
-<h2>Book Appointment</h2>
+<div class="container mt-4">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    <div class="card shadow-sm rounded-3">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Book Appointment</h4>
+        </div>
 
-    @Html.ValidationSummary(
-        true,
-        "",
-        new { @class = "text-danger" })
+        <div class="card-body">
 
-    <div class="form-group mb-3">
-
-        <label>Patient</label>
-
-        @Html.DropDownListFor(
-            m => m.PatientId,
-            (SelectList)ViewBag.Patients,
-            "-- Select Patient --",
-            new { @class = "form-control" })
-
-        @Html.ValidationMessageFor(
-            m => m.PatientId,
-            "",
-            new { @class = "text-danger" })
-
-    </div>
-
-    <div class="form-group mb-3">
-
-        <label>Doctor</label>
-
-        @Html.DropDownListFor(
-            m => m.DoctorId,
-            (SelectList)ViewBag.Doctors,
-            "-- Select Doctor --",
-            new { @class = "form-control" })
-
-        @Html.ValidationMessageFor(
-            m => m.DoctorId,
-            "",
-            new { @class = "text-danger" })
-
-    </div>
-
-    <div class="form-group mb-3">
-
-        <label>Date</label>
-
-        @Html.TextBoxFor(
-            m => m.ScheduledDate,
-            "{0:yyyy-MM-dd}",
-            new
+            @using (Html.BeginForm())
             {
-                @class = "form-control",
-                type = "date"
-            })
+                @Html.AntiForgeryToken()
 
-        @Html.ValidationMessageFor(
-            m => m.ScheduledDate,
-            "",
-            new { @class = "text-danger" })
+                <!-- ✅ Hidden field to track confirmation -->
+                @Html.Hidden("IsConfirmed", false, new { id = "IsConfirmed" })
 
+                @Html.ValidationSummary(
+                    true,
+                    "",
+                    new { @class = "text-danger mb-3" })
+
+                <div class="row">
+
+                    <!-- Patient -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">Patient</label>
+
+                        @Html.DropDownListFor(
+                            m => m.PatientId,
+                            (SelectList)ViewBag.Patients,
+                            "-- Select Patient --",
+                            new { @class = "form-select" })
+
+                        @Html.ValidationMessageFor(
+                            m => m.PatientId,
+                            "",
+                            new { @class = "text-danger small" })
+                    </div>
+
+                    <!-- Doctor -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">Doctor</label>
+
+                        @Html.DropDownListFor(
+                            m => m.DoctorId,
+                            (SelectList)ViewBag.Doctors,
+                            "-- Select Doctor --",
+                            new { @class = "form-select" })
+
+                        @Html.ValidationMessageFor(
+                            m => m.DoctorId,
+                            "",
+                            new { @class = "text-danger small" })
+                    </div>
+
+                    <!-- Date -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">Date</label>
+
+                        @Html.TextBoxFor(
+                            m => m.ScheduledDate,
+                            "{0:yyyy-MM-dd}",
+                            new
+                            {
+                                @class = "form-control",
+                                type = "date"
+                            })
+
+                        @Html.ValidationMessageFor(
+                            m => m.ScheduledDate,
+                            "",
+                            new { @class = "text-danger small" })
+                    </div>
+
+                    <!-- Time Slot -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">Time Slot</label>
+
+                        @Html.DropDownListFor(
+                            m => m.TimeSlot,
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "09:00 AM", Value = "09:00 AM" },
+                                new SelectListItem { Text = "10:00 AM", Value = "10:00 AM" },
+                                new SelectListItem { Text = "11:00 AM", Value = "11:00 AM" },
+                                new SelectListItem { Text = "02:00 PM", Value = "02:00 PM" },
+                                new SelectListItem { Text = "03:00 PM", Value = "03:00 PM" }
+                            },
+                            "-- Select Slot --",
+                            new { @class = "form-select" })
+
+                        @Html.ValidationMessageFor(
+                            m => m.TimeSlot,
+                            "",
+                            new { @class = "text-danger small" })
+                    </div>
+
+                </div>
+
+                <!-- ✅ BUTTON SECTION UPDATED -->
+                <div class="d-flex justify-content-between mt-4">
+
+                    @Html.ActionLink(
+                        "Back",
+                        "Index",
+                        null,
+                        new { @class = "btn btn-outline-secondary px-4" })
+
+                    <div>
+
+                        <!-- ✅ Confirm Button (VISIBLE FIRST) -->
+                        <button type="button"
+                                id="confirmBtn"
+                                class="btn btn-primary px-4">
+                            Confirm Appointment
+                        </button>
+
+                        <!-- ✅ Complete Button (HIDDEN FIRST) -->
+                        <button type="submit"
+                                id="completeBtn"
+                                class="btn btn-success px-4"
+                                style="display:none;">
+                            Complete Appointment
+                        </button>
+
+                    </div>
+                </div>
+            }
+
+        </div>
     </div>
-
-    <div class="form-group mb-3">
-
-        <label>Time Slot</label>
-
-        @Html.DropDownListFor(
-            m => m.TimeSlot,
-            new List<SelectListItem>
-            {
-                new SelectListItem
-                {
-                    Text = "09:00 AM",
-                    Value = "09:00 AM"
-                },
-
-                new SelectListItem
-                {
-                    Text = "10:00 AM",
-                    Value = "10:00 AM"
-                },
-
-                new SelectListItem
-                {
-                    Text = "11:00 AM",
-                    Value = "11:00 AM"
-                },
-
-                new SelectListItem
-                {
-                    Text = "02:00 PM",
-                    Value = "02:00 PM"
-                },
-
-                new SelectListItem
-                {
-                    Text = "03:00 PM",
-                    Value = "03:00 PM"
-                }
-            },
-            "-- Select Slot --",
-            new { @class = "form-control" })
-
-        @Html.ValidationMessageFor(
-            m => m.TimeSlot,
-            "",
-            new { @class = "text-danger" })
-
-    </div>
-
-    <button type="submit"
-            class="btn btn-primary">
-        Save
-    </button>
-
-    @Html.ActionLink(
-        "Back",
-        "Index",
-        null,
-        new { @class = "btn btn-secondary" })
-}
+</div>
 
 @section Scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+
+    <script>
+        $(document).ready(function () {
+
+            $("#confirmBtn").click(function () {
+
+                var confirmAction = confirm("Are you sure you want to confirm this appointment?");
+
+                if (confirmAction) {
+
+                    // ✅ Set confirmation flag
+                    $("#IsConfirmed").val(true);
+
+                    // ✅ Swap buttons
+                    $("#confirmBtn").hide();
+                    $("#completeBtn").show();
+                }
+            });
+
+        });
+    </script>
 }
